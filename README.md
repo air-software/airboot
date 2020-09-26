@@ -1,37 +1,19 @@
-# airboot
+# Airboot
 
-#### 介绍
-Airboot——轻量级通用管理系统
+---
 
-#### 软件架构
-软件架构说明
+## 介绍
 
+Airboot是一个轻量级通用管理系统。
 
-#### 安装教程
+本系统基于 [RuoYi-Vue](https://gitee.com/y_project/RuoYi-Vue) 二次开发，RuoYi本身是一个优秀的开源项目，我根据**个人开发习惯**做了一些架构和细节上的改动，也谈不上什么优化，欢迎有类似开发习惯的小伙伴们尝试使用。
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+主要改动如下：
 
-#### 使用说明
+1. 将`Mybatis`替换为 [Mybatis-Plus](https://baomidou.com/) ，简化了Mapper代码；
+2. 去掉了较重的`Spring-Security`，改为自定义拦截器实现；
+3. 添加了可选配的多租户支持，采用【**共享数据库，共享数据表**】的模式（即通过表内的`tenant_id`来区分租户）。后期还会添加【**共享数据库，独立Schema**】的模式；
+4. 去掉了字典数据功能，全部改为枚举实现。这东西见仁见智，只是我个人更习惯用枚举，没有绝对的好坏；
+5. 其他细节改动，如代码风格、框架配置、工具类封装、代码生成等等。
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
-
-
-#### 特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+**详细的使用文档**会在近期放出。
