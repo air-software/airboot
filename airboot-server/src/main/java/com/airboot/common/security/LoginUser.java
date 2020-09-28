@@ -106,4 +106,8 @@ public class LoginUser {
         return user.getUsername();
     }
     
+    public boolean isAdmin() {
+        return user.isAdmin();
+    }
+    
 }

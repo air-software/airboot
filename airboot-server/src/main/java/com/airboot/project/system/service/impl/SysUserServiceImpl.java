@@ -239,7 +239,7 @@ public class SysUserServiceImpl implements ISysUserService {
             throw new CustomException("未找到要操作的用户");
         }
         // 操作人本身是否是管理员
-        boolean isLoginAdmin = SysUser.isAdmin(LoginUserContextHolder.getLoginUser().getUserId());
+        boolean isLoginAdmin = LoginUserContextHolder.getLoginUser().isAdmin();
         // 如果要操作的对象是管理员用户
         if (user.isAdmin()) {
             // 任何人不允许停用管理员用户
@@ -371,7 +371,9 @@ public class SysUserServiceImpl implements ISysUserService {
     @Override
     public int deleteByIds(Long[] userIds) {
         for (Long userId : userIds) {
-            checkUserAllowed(new SysUser(userId));
+            if (SysUser.isAdmin(userId) || userId == null) {
+                throw new CustomException("不允许删除管理员用户");
+            }
         }
         return userMapper.deleteUserByIds(userIds);
     }
