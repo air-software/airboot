@@ -83,19 +83,23 @@
   box-sizing: content-box;
 }
 
-/* to fix placeholder color in Edge and IE */
-input::placeholder {
+/* to fix placeholder color */
+input::placeholder, textarea::placeholder {
   color: #C0C4CC;
 }
-/* Chrome and Edge */
-input::-webkit-input-placeholder {
+/* Chrome and Edge, or other Webkit browsers */
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
   color: #C0C4CC;
 }
-/* Firefox */
-input:-moz-placeholder {
+/* Mozilla Firefox 4 to 18 */
+input:-moz-placeholder, textarea:-moz-placeholder {
   color: #C0C4CC;
 }
-/* IE */
-input:-ms-input-placeholder {
+/* Mozilla Firefox 19+ */
+input::-moz-placeholder, textarea::-moz-placeholder{
+  color: #C0C4CC;
+}
+/* Internet Explorer 10+ */
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   color: #C0C4CC !important;
 }
