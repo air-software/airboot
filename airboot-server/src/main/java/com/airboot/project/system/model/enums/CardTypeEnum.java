@@ -12,8 +12,8 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum CardTypeEnum {
-    其他(0),
     身份证(1),
+    其他(0),
     ;
     
     @EnumValue

@@ -12,11 +12,11 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum SearchStatusEnum {
+    正常(1),
+    成功(1),
     暂停(0),
     停用(0),
     失败(0),
-    正常(1),
-    成功(1),
     ;
     
     @EnumValue

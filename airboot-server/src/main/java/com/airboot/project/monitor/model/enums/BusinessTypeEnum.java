@@ -12,7 +12,6 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum BusinessTypeEnum {
-    其它(0),
     新增(1),
     修改(2),
     删除(3),
@@ -22,6 +21,7 @@ public enum BusinessTypeEnum {
     强退(7),
     生成代码(8),
     清空数据(9),
+    其它(0),
     ;
     
     @EnumValue

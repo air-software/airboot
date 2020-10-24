@@ -12,8 +12,8 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum StatusEnum {
-    停用(0),
     正常(1),
+    停用(0),
     ;
     
     @EnumValue

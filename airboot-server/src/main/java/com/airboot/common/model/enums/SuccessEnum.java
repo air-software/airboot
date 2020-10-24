@@ -12,8 +12,8 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum SuccessEnum {
-    失败(0),
     成功(1),
+    失败(0),
     ;
     
     @EnumValue

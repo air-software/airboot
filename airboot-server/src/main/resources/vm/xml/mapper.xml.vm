@@ -28,31 +28,31 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 #set($columnName=$column.columnName)
 #if($column.query)
 #if($queryType == "EQ")
-            <if test="$javaField != null #if($javaType == 'String' ) and $javaField.trim() != ''#end">
+            <if test="$javaField != null#if($javaType == 'String' ) and $javaField.trim() != ''#end">
                 and $columnName = #{$javaField}
             </if>
 #elseif($queryType == "NE")
-            <if test="$javaField != null #if($javaType == 'String' ) and $javaField.trim() != ''#end">
+            <if test="$javaField != null#if($javaType == 'String' ) and $javaField.trim() != ''#end">
                 and $columnName != #{$javaField}
             </if>
 #elseif($queryType == "GT")
-            <if test="$javaField != null #if($javaType == 'String' ) and $javaField.trim() != ''#end">
+            <if test="$javaField != null#if($javaType == 'String' ) and $javaField.trim() != ''#end">
                 and $columnName &gt; #{$javaField}
             </if>
 #elseif($queryType == "GTE")
-            <if test="$javaField != null #if($javaType == 'String' ) and $javaField.trim() != ''#end">
+            <if test="$javaField != null#if($javaType == 'String' ) and $javaField.trim() != ''#end">
                 and $columnName &gt;= #{$javaField}
             </if>
 #elseif($queryType == "LT")
-            <if test="$javaField != null #if($javaType == 'String' ) and $javaField.trim() != ''#end">
+            <if test="$javaField != null#if($javaType == 'String' ) and $javaField.trim() != ''#end">
                 and $columnName &lt; #{$javaField}
             </if>
 #elseif($queryType == "LTE")
-            <if test="$javaField != null #if($javaType == 'String' ) and $javaField.trim() != ''#end">
+            <if test="$javaField != null#if($javaType == 'String' ) and $javaField.trim() != ''#end">
                 and $columnName &lt;= #{$javaField}
             </if>
 #elseif($queryType == "LIKE")
-            <if test="$javaField != null #if($javaType == 'String' ) and $javaField.trim() != ''#end">
+            <if test="$javaField != null#if($javaType == 'String' ) and $javaField.trim() != ''#end">
                 and $columnName like concat('%', #{$javaField}, '%')
             </if>
 #elseif($queryType == "BETWEEN")

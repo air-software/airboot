@@ -54,7 +54,7 @@
     </el-form>
     <!--  底部  -->
     <div class="el-login-footer">
-      <span>Copyright © 2020-2021 airjava.org All Rights Reserved.</span>
+      <span>Copyright © 2020-2021 air-software.com All Rights Reserved.</span>
     </div>
   </div>
 </template>

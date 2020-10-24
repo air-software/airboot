@@ -12,9 +12,9 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum GenderEnum {
-    保密(0),
     男(1),
     女(2),
+    保密(0),
     ;
     
     @EnumValue
