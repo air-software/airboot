@@ -8,13 +8,17 @@
       <template v-if="device!=='mobile'">
         <search id="header-search" class="right-menu-item" />
 
-        <el-tooltip content="源码地址" effect="dark" placement="bottom">
-          <airboot-git id="airboot-git" class="right-menu-item hover-effect" />
+        <el-tooltip content="Github" effect="dark" placement="bottom">
+          <airboot-git id="airboot-github" platform="github" class="right-menu-item hover-effect" />
         </el-tooltip>
 
-        <el-tooltip content="文档地址" effect="dark" placement="bottom">
-          <airboot-doc id="airboot-doc" class="right-menu-item hover-effect" />
+        <el-tooltip content="Gitee" effect="dark" placement="bottom">
+          <airboot-git id="airboot-gitee" platform="gitee" class="right-menu-item hover-effect" />
         </el-tooltip>
+
+<!--        <el-tooltip content="文档地址" effect="dark" placement="bottom">-->
+<!--          <airboot-doc id="airboot-doc" class="right-menu-item hover-effect" />-->
+<!--        </el-tooltip>-->
 
         <screenfull id="screenfull" class="right-menu-item hover-effect" />
 
