@@ -77,7 +77,7 @@ public class VelocityUtils {
         JSONObject paramsObj = JSONObject.parseObject(options);
         String parentMenuId = getParentMenuId(paramsObj);
         context.put("parentMenuId", parentMenuId);
-        context.put("autoResultMap", paramsObj.getBooleanValue(GenConstants.AUTO_RESULT_MAP));
+        context.put("autoResultMap", paramsObj != null && paramsObj.getBooleanValue(GenConstants.AUTO_RESULT_MAP));
     }
     
     public static void setTreeVelocityContext(VelocityContext context, GenTable genTable) {
