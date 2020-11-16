@@ -1,4 +1,11 @@
 -- ----------------------------
+-- 关闭外键约束，避免被Quartz表中的外键影响启动。
+-- 注意：如果重启了MySQL服务，要先用 select @@foreign_key_checks; 检查外键约束的值，如果值为1表示又被开启了，需要再运行下面这条SQL语句关闭约束。
+-- ----------------------------
+set global foreign_key_checks = 0;
+set foreign_key_checks = 0;
+
+-- ----------------------------
 -- 1、部门表
 -- ----------------------------
 drop table if exists sys_dept;
