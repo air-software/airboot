@@ -1,8 +1,10 @@
 package com.airboot.common.security;
 
 import com.airboot.common.model.enums.DeviceEnum;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 用户登录信息记录
@@ -11,6 +13,8 @@ import lombok.Data;
  */
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class RecordLogininforVO {
     
     /**
