@@ -1,17 +1,19 @@
 package com.airboot.common.core.manager.factory;
 
-import com.airboot.common.core.constant.Constants;
 import com.airboot.common.core.utils.LogUtils;
 import com.airboot.common.core.utils.ServletUtils;
+import com.airboot.common.core.utils.bean.CopyUtils;
 import com.airboot.common.core.utils.ip.AddressUtils;
 import com.airboot.common.core.utils.ip.IpUtils;
 import com.airboot.common.core.utils.spring.SpringUtils;
-import com.airboot.common.model.enums.SuccessEnum;
+import com.airboot.common.model.enums.LoginResultEnum;
 import com.airboot.common.security.RecordLogininforVO;
 import com.airboot.project.monitor.model.entity.SysLogininfor;
 import com.airboot.project.monitor.model.entity.SysOperLog;
 import com.airboot.project.monitor.service.ISysLogininforService;
 import com.airboot.project.monitor.service.ISysOperLogService;
+import com.airboot.project.system.model.entity.SysUser;
+import com.airboot.project.system.service.ISysUserService;
 import eu.bitwalker.useragentutils.UserAgent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -42,14 +44,14 @@ public class AsyncFactory {
         return new TimerTask() {
             @Override
             public void run() {
-                String address = AddressUtils.getRealAddressByIP(ip);
+                String address = AddressUtils.getRealAddressByIp(ip);
                 StringBuilder s = new StringBuilder();
                 s.append(LogUtils.getBlock(ip));
                 s.append(address);
                 s.append(LogUtils.getBlock(recordLogininforVO.getUserId()));
                 s.append(LogUtils.getBlock(recordLogininforVO.getAccount()));
-                s.append(LogUtils.getBlock(recordLogininforVO.getStatus()));
-                s.append(LogUtils.getBlock(recordLogininforVO.getMessage()));
+                s.append(LogUtils.getBlock(recordLogininforVO.getLoginResult()));
+                s.append(LogUtils.getBlock(recordLogininforVO.getMsg()));
                 // 打印信息到日志
                 sys_user_logger.info(s.toString(), args);
                 // 获取客户端操作系统
@@ -57,22 +59,25 @@ public class AsyncFactory {
                 // 获取客户端浏览器
                 String browser = userAgent.getBrowser().getName();
                 // 封装对象
-                SysLogininfor logininfor = new SysLogininfor();
-                logininfor.setUserId(recordLogininforVO.getUserId());
-                logininfor.setAccount(recordLogininforVO.getAccount());
-                logininfor.setDevice(recordLogininforVO.getDevice());
+                SysLogininfor logininfor = CopyUtils.copy(recordLogininforVO, SysLogininfor.class);
                 logininfor.setIpaddr(ip);
                 logininfor.setLoginLocation(address);
                 logininfor.setLoginTime(new Date());
                 logininfor.setBrowser(browser);
                 logininfor.setOs(os);
-                logininfor.setMsg(recordLogininforVO.getMessage());
-                // 日志状态
-                if (Constants.LOGIN_SUCCESS.equals(recordLogininforVO.getStatus()) || Constants.LOGOUT.equals(recordLogininforVO.getStatus())) {
-                    logininfor.setStatus(SuccessEnum.成功);
-                } else if (Constants.LOGIN_FAIL.equals(recordLogininforVO.getStatus())) {
-                    logininfor.setStatus(SuccessEnum.失败);
+                
+                if (LoginResultEnum.登录成功.equals(recordLogininforVO.getLoginResult())) {
+                    // 登录成功后异步更新用户最后登录信息
+                    SysUser user = SysUser.builder()
+                        .id(recordLogininforVO.getUserId())
+                        .loginIp(ip)
+                        .loginLocation(logininfor.getLoginLocation())
+                        .loginDate(new Date())
+                        .updateBy(recordLogininforVO.getAccount())
+                        .build();
+                    SpringUtils.getBean(ISysUserService.class).updateUserProfile(user);
                 }
+                
                 // 插入数据
                 SpringUtils.getBean(ISysLogininforService.class).save(logininfor);
             }
@@ -89,8 +94,8 @@ public class AsyncFactory {
         return new TimerTask() {
             @Override
             public void run() {
-                // 远程查询操作地点
-                operLog.setOperLocation(AddressUtils.getRealAddressByIP(operLog.getOperIp()));
+                // 根据IP查询操作地点
+                operLog.setOperLocation(AddressUtils.getRealAddressByIp(operLog.getOperIp()));
                 SpringUtils.getBean(ISysOperLogService.class).save(operLog);
             }
         };

@@ -7,7 +7,6 @@ import com.airboot.common.core.redis.RedisCache;
 import com.airboot.common.core.utils.IdUtils;
 import com.airboot.common.core.utils.ServletUtils;
 import com.airboot.common.core.utils.StringUtils;
-import com.airboot.common.core.utils.ip.AddressUtils;
 import com.airboot.common.core.utils.ip.IpUtils;
 import com.airboot.common.core.utils.security.Md5Utils;
 import com.airboot.common.security.LoginUser;
@@ -169,7 +168,8 @@ public class TokenService {
         UserAgent userAgent = UserAgent.parseUserAgentString(ServletUtils.getRequest().getHeader("User-Agent"));
         String ip = IpUtils.getIpAddr(ServletUtils.getRequest());
         loginUser.setIpaddr(ip);
-        loginUser.setLoginLocation(AddressUtils.getRealAddressByIP(ip));
+        // 由于查询真实地址需要远程调用其他网站，为保障用户登录时响应速度的稳定，不建议在此处同步调用。如确实需要同步调用获取真实地址，打开下方代码的注释即可。
+        // loginUser.setLoginLocation(AddressUtils.getRealAddressByIp(ip));
         loginUser.setUserAgent(userAgent);
         loginUser.setBrowser(userAgent.getBrowser().getName());
         loginUser.setOs(userAgent.getOperatingSystem().getName());

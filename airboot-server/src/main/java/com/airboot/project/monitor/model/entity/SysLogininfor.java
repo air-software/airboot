@@ -4,7 +4,7 @@ import com.airboot.common.core.aspectj.lang.annotation.Excel;
 import com.airboot.common.core.utils.DateUtils;
 import com.airboot.common.model.entity.BaseEntity;
 import com.airboot.common.model.enums.DeviceEnum;
-import com.airboot.common.model.enums.SuccessEnum;
+import com.airboot.common.model.enums.LoginResultEnum;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
@@ -40,10 +40,10 @@ public class SysLogininfor extends BaseEntity {
     private Long userId;
     
     /**
-     * 登录状态 0失败 1成功
+     * 登录结果
      */
-    @Excel(name = "登录状态")
-    private SuccessEnum status;
+    @Excel(name = "登录结果")
+    private LoginResultEnum loginResult;
     
     /**
      * 登录IP地址

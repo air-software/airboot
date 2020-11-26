@@ -33,21 +33,6 @@ public class Constants {
     public static final String HTTPS = "https://";
     
     /**
-     * 登录成功
-     */
-    public static final String LOGIN_SUCCESS = "Success";
-    
-    /**
-     * 注销
-     */
-    public static final String LOGOUT = "Logout";
-    
-    /**
-     * 登录失败
-     */
-    public static final String LOGIN_FAIL = "Error";
-    
-    /**
      * redis key前缀
      */
     public static final String REDIS_PREFIX = "airboot:";

@@ -1,10 +1,10 @@
 package com.airboot.common.security.controller;
 
-import com.airboot.common.core.constant.Constants;
 import com.airboot.common.core.manager.AsyncManager;
 import com.airboot.common.core.manager.factory.AsyncFactory;
 import com.airboot.common.core.utils.MessageUtils;
 import com.airboot.common.core.utils.StringUtils;
+import com.airboot.common.model.enums.LoginResultEnum;
 import com.airboot.common.model.vo.AjaxResult;
 import com.airboot.common.security.LoginBody;
 import com.airboot.common.security.LoginUser;
@@ -75,8 +75,8 @@ public class SysLoginController {
                 .userId(loginUser.getUserId())
                 .account(loginUser.getAccount())
                 .device(loginUser.getDevice())
-                .status(Constants.LOGOUT)
-                .message(MessageUtils.message("user.logout.success"))
+                .loginResult(LoginResultEnum.退出成功)
+                .msg(MessageUtils.message("user.logout.success"))
                 .build();
             AsyncManager.me().execute(AsyncFactory.recordLogininfor(recordLogininforVO));
         }

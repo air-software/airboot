@@ -1,6 +1,7 @@
 package com.airboot.common.security;
 
 import com.airboot.common.model.enums.DeviceEnum;
+import com.airboot.common.model.enums.LoginResultEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -33,13 +34,13 @@ public class RecordLogininforVO {
     private DeviceEnum device;
     
     /**
-     * 结果状态
+     * 登录结果
      */
-    private String status;
+    private LoginResultEnum loginResult;
     
     /**
      * 消息
      */
-    private String message;
+    private String msg;
     
 }

@@ -19,6 +19,7 @@
         <result property="cardType" column="card_type"/>
         <result property="status" column="status"/>
         <result property="loginIp" column="login_ip"/>
+        <result property="loginLocation" column="login_location"/>
         <result property="loginDate" column="login_date"/>
         <result property="createBy" column="create_by"/>
         <result property="createTime" column="create_time"/>

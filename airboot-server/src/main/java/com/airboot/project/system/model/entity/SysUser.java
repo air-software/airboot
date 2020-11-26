@@ -121,6 +121,12 @@ public class SysUser extends BaseEntity {
     private String loginIp;
     
     /**
+     * 最后登录地点
+     */
+    @Excel(name = "最后登录地点", type = Type.EXPORT)
+    private String loginLocation;
+    
+    /**
      * 最后登录时间
      */
     @JsonFormat(pattern = DateUtils.DATETIME_FORMAT, locale = "zh", timezone = "GMT+8")

@@ -28,6 +28,7 @@
     <el-table
       v-loading="loading"
       :data="tableData.slice((current-1) * size, current * size)"
+      class="online-table"
       style="width: 100%;"
     >
       <el-table-column label="序号" type="index" align="center">
@@ -36,10 +37,19 @@
         </template>
       </el-table-column>
       <el-table-column label="会话编号" align="center" prop="uuid" :show-overflow-tooltip="true" />
-      <el-table-column label="登录账号" align="center" prop="account" :show-overflow-tooltip="true" />
+      <el-table-column label="登录账号" align="center" prop="account" width="110" :show-overflow-tooltip="true" />
       <el-table-column label="部门名称" align="center" prop="deptName" />
-      <el-table-column label="主机" align="center" prop="ipaddr" :show-overflow-tooltip="true" />
-      <el-table-column label="登录地点" align="center" prop="loginLocation" :show-overflow-tooltip="true" />
+      <el-table-column label="登录地点" align="center" prop="ipaddr" width="240" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          <el-button
+            title="点击IP查询真实地址"
+            :loading="scope.row.loginLocation === '获取中'"
+            type="text"
+            @click="getIpLocation(scope.row)"
+          >{{ scope.row.ipaddr }}</el-button>
+          <span v-if="scope.row.loginLocation && scope.row.loginLocation !== '获取中'">/ {{ scope.row.loginLocation }}</span>
+        </template>
+      </el-table-column>
       <el-table-column label="登录设备" align="center" prop="device" :show-overflow-tooltip="true" />
       <el-table-column label="浏览器" align="center" prop="browser" />
       <el-table-column label="操作系统" align="center" prop="os" />
@@ -67,6 +77,7 @@
 
 <script>
 import { pageOnline, forceLogout } from '@/api/monitor/online'
+import { getIpLocation } from '@/api/common'
 
 export default {
   name: 'Online',
@@ -122,8 +133,23 @@ export default {
           this.getPage()
           this.msgSuccess('强退成功')
         }).catch(function() {})
+    },
+    /** 获取IP真实地址 **/
+    getIpLocation(row) {
+      if (row.loginLocation) return
+      row.loginLocation = '获取中'
+      setTimeout(() => {
+        getIpLocation(row.ipaddr).then(data => {
+          row.loginLocation = data || this.msgInfo('未开启地址查询功能')
+        })
+      }, 500)
     }
   }
 }
 </script>
 
+<style scoped>
+.online-table .el-button.is-loading:before {
+  background-color: transparent;
+}
+</style>

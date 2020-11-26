@@ -15,33 +15,38 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class AddressUtils {
     
-    // IP地址查询
+    // IP地址查询URL
     public static final String IP_URL = "http://whois.pconline.com.cn/ipJson.jsp";
     
-    // 未知地址
-    public static final String UNKNOWN = "XX XX";
-    
-    public static String getRealAddressByIP(String ip) {
-        String address = UNKNOWN;
+    /**
+     * 根据IP远程查询真实地址
+     */
+    public static String getRealAddressByIp(String ip) {
+        // 如果未开启查询
+        if (!ProjectConfig.isAddressEnabled()) {
+            return "";
+        }
         // 内网不查询
         if (IpUtils.internalIp(ip)) {
-            return "内网IP";
+            return "内网地址";
         }
-        if (ProjectConfig.isAddressEnabled()) {
-            try {
-                String rspStr = HttpUtils.sendGet(IP_URL, "ip=" + ip + "&json=true", Constants.GBK);
-                if (StringUtils.isEmpty(rspStr)) {
-                    log.error("获取地理位置异常 {}", ip);
-                    return UNKNOWN;
-                }
-                JSONObject obj = JSONObject.parseObject(rspStr);
-                String region = obj.getString("pro");
-                String city = obj.getString("city");
-                return String.format("%s %s", region, city);
-            } catch (Exception e) {
-                log.error("获取地理位置异常 {}", ip);
+        try {
+            String jsonStr = HttpUtils.sendGet(IP_URL, "ip=" + ip + "&json=true", Constants.GBK);
+            if (StringUtils.isBlank(jsonStr)) {
+                log.error("返回地址结果为空，ip：{}", ip);
+                return "未知地址";
             }
+            JSONObject obj = JSONObject.parseObject(jsonStr);
+            String province = obj.getString("pro");
+            String city = obj.getString("city");
+            if (StringUtils.isBlank(province) && StringUtils.isBlank(city)) {
+                log.error("返回地址结果中province和city为空，ip：{}，jsonStr：{}", ip, jsonStr);
+                return "未知地址";
+            }
+            return String.format("%s %s", province, city);
+        } catch (Exception e) {
+            log.error("获取地理位置异常 {}", ip);
+            return "无法获取地址";
         }
-        return address;
     }
 }

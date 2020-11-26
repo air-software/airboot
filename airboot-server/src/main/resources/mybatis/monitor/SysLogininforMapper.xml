@@ -11,8 +11,8 @@
             <if test="ipaddr != null and ipaddr != ''">
                 AND ipaddr like concat('%', #{ipaddr}, '%')
             </if>
-            <if test="status != null">
-                AND status = #{status}
+            <if test="loginResult != null">
+                AND login_result = #{loginResult}
             </if>
             <if test="account != null and account != ''">
                 AND account like concat('%', #{account}, '%')

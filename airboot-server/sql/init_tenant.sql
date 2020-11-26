@@ -89,6 +89,7 @@ create table sys_user (
   card_type         tinyint(4)      default 1                   comment '证件类型',
   status            tinyint(4)       default 1                comment '帐号状态（0=停用,1=正常）',
   login_ip          varchar(50)     default ''                 comment '最后登录IP',
+  login_location    varchar(190)    default ''                 comment '最后登录地点',
   login_date        datetime                                   comment '最后登录时间',
   create_by         varchar(64)     default ''                 comment '创建者',
   create_time       datetime                                   comment '创建时间',
@@ -104,8 +105,8 @@ create table sys_user (
 -- ----------------------------
 -- 初始化-用户信息表数据
 -- ----------------------------
-insert into sys_user values(1, 1,  103, 'admin', 'airoland', '123456@qq.com', '15888888888', '1', '', '41ae2142375ca87970787369850d8790330734b21cb8ee4e', '', '', 1, 1, '127.0.0.1', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '管理员', 0, 0);
-insert into sys_user values(2, 1,  105, 'airboot', 'airoland', '456789@qq.com',  '15666666666', '1', '', '41ae2142375ca87970787369850d8790330734b21cb8ee4e', '', '', 1, 1, '127.0.0.1', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '测试员', 0, 0);
+insert into sys_user values(1, 1,  103, 'admin', 'airoland', '123456@qq.com', '15888888888', '1', '', '41ae2142375ca87970787369850d8790330734b21cb8ee4e', '', '', 1, 1, '127.0.0.1', '内网地址', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '管理员', 0, 0);
+insert into sys_user values(2, 1,  105, 'airboot', 'airoland', '456789@qq.com',  '15666666666', '1', '', '41ae2142375ca87970787369850d8790330734b21cb8ee4e', '', '', 1, 1, '127.0.0.1', '内网地址', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '测试员', 0, 0);
 
 
 -- ----------------------------
@@ -512,7 +513,7 @@ create table sys_logininfor (
   device         tinyint(4)     default 10                comment '登录设备（10=PC端,20=手机APP,30=微信小程序）',
   browser        varchar(50)    default ''                comment '浏览器类型',
   os             varchar(50)    default ''                comment '操作系统',
-  status         tinyint(4)        default 1               comment '登录状态（0=失败,1=成功）',
+  login_result   tinyint(4)        default 1               comment '登录结果（1=登录成功,-1=登录失败,11=退出成功）',
   msg            varchar(190)   default ''                comment '提示消息',
   login_time     datetime                                 comment '登录时间',
   create_by         varchar(64)     default ''                 comment '创建者',

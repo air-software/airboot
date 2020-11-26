@@ -9,6 +9,7 @@ import com.airboot.common.core.redis.RedisCache;
 import com.airboot.common.core.utils.MessageUtils;
 import com.airboot.common.core.utils.security.Md5Utils;
 import com.airboot.common.model.enums.DeviceEnum;
+import com.airboot.common.model.enums.LoginResultEnum;
 import com.airboot.common.model.enums.StatusEnum;
 import com.airboot.common.security.LoginBody;
 import com.airboot.common.security.LoginUser;
@@ -56,7 +57,7 @@ public class SysLoginService {
         RecordLogininforVO recordLogininforVO = RecordLogininforVO.builder()
             .account(account)
             .device(device)
-            .status(Constants.LOGIN_FAIL)
+            .loginResult(LoginResultEnum.登录失败)
             .build();
         
         // 是否需要验证码
@@ -67,13 +68,13 @@ public class SysLoginService {
         SysUser user = userService.getByAccount(account);
         // 如果未查询到用户
         if (user == null) {
-            recordLogininforVO.setMessage(MessageUtils.message("user.not.exist"));
+            recordLogininforVO.setMsg(MessageUtils.message("user.not.exist"));
             AsyncManager.me().execute(AsyncFactory.recordLogininfor(recordLogininforVO));
             throw new UserNotExistException();
         }
         // 如果用户已被停用
         if (StatusEnum.停用.equals(user.getStatus())) {
-            recordLogininforVO.setMessage(MessageUtils.message("user.blocked"));
+            recordLogininforVO.setMsg(MessageUtils.message("user.blocked"));
             AsyncManager.me().execute(AsyncFactory.recordLogininfor(recordLogininforVO));
             throw new UserException("user.blocked", null);
         }
@@ -82,14 +83,14 @@ public class SysLoginService {
         
         // 如果密码不匹配
         if (!Md5Utils.verifyPassword(password, user.getPassword())) {
-            recordLogininforVO.setMessage(MessageUtils.message("user.password.not.match"));
+            recordLogininforVO.setMsg(MessageUtils.message("user.password.not.match"));
             AsyncManager.me().execute(AsyncFactory.recordLogininfor(recordLogininforVO));
             throw new UserPasswordNotMatchException();
         }
     
         // 登录成功
-        recordLogininforVO.setStatus(Constants.LOGIN_SUCCESS);
-        recordLogininforVO.setMessage(MessageUtils.message("user.login.success"));
+        recordLogininforVO.setLoginResult(LoginResultEnum.登录成功);
+        recordLogininforVO.setMsg(MessageUtils.message("user.login.success"));
         AsyncManager.me().execute(AsyncFactory.recordLogininfor(recordLogininforVO));
         
         // 构建登录用户，并获取权限列表
@@ -123,13 +124,13 @@ public class SysLoginService {
         redisCache.deleteObject(verifyKey);
         // 验证码已过期
         if (captcha == null) {
-            recordLogininforVO.setMessage(MessageUtils.message("user.jcaptcha.expire"));
+            recordLogininforVO.setMsg(MessageUtils.message("user.jcaptcha.expire"));
             AsyncManager.me().execute(AsyncFactory.recordLogininfor(recordLogininforVO));
             throw new CaptchaExpireException();
         }
         // 验证码不匹配
         if (!code.equalsIgnoreCase(captcha)) {
-            recordLogininforVO.setMessage(MessageUtils.message("user.jcaptcha.error"));
+            recordLogininforVO.setMsg(MessageUtils.message("user.jcaptcha.error"));
             AsyncManager.me().execute(AsyncFactory.recordLogininfor(recordLogininforVO));
             throw new CaptchaException();
         }

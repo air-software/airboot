@@ -21,16 +21,17 @@
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
-      <el-form-item label="状态" prop="status">
+      <el-form-item label="登录结果" prop="loginResult">
         <el-select
-          v-model="queryParams.status"
-          placeholder="登录状态"
+          v-model="queryParams.loginResult"
+          placeholder="登录结果"
           clearable
           size="small"
           style="width: 240px"
         >
-          <el-option value="成功" />
-          <el-option value="失败" />
+          <el-option value="登录成功" />
+          <el-option value="登录失败" />
+          <el-option value="退出成功" />
         </el-select>
       </el-form-item>
       <el-form-item label="登录时间">
@@ -85,14 +86,14 @@
     <el-table v-loading="loading" :data="tableData" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" align="center" />
       <el-table-column label="访问编号" align="center" prop="id" />
-      <el-table-column label="登录账号" align="center" prop="account" />
-      <el-table-column label="登录地址" align="center" prop="ipaddr" width="130" :show-overflow-tooltip="true" />
-      <el-table-column label="登录地点" align="center" prop="loginLocation" :show-overflow-tooltip="true" />
+      <el-table-column label="登录账号" align="center" prop="account" width="110" :show-overflow-tooltip="true" />
+      <el-table-column label="登录IP" align="center" prop="ipaddr" width="130" :show-overflow-tooltip="true" />
+      <el-table-column label="登录地点" align="center" prop="loginLocation" width="130" :show-overflow-tooltip="true" />
       <el-table-column label="登录设备" align="center" prop="device" :show-overflow-tooltip="true" />
       <el-table-column label="浏览器" align="center" prop="browser" />
-      <el-table-column label="操作系统" align="center" prop="os" />
-      <el-table-column label="登录状态" align="center" prop="status" />
-      <el-table-column label="操作信息" align="center" prop="msg" />
+      <el-table-column label="操作系统" align="center" prop="os" width="100" :show-overflow-tooltip="true" />
+      <el-table-column label="登录结果" align="center" prop="loginResult" />
+      <el-table-column label="提示信息" align="center" prop="msg" />
       <el-table-column label="登录时间" align="center" prop="loginTime" width="180">
         <template slot-scope="scope">
           <span>{{ parseTime(scope.row.loginTime) }}</span>
@@ -135,7 +136,7 @@ export default {
         size: 10,
         ipaddr: undefined,
         account: undefined,
-        status: undefined
+        loginResult: undefined
       }
     }
   },

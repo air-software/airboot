@@ -6,10 +6,12 @@ import com.airboot.common.core.constant.Constants;
 import com.airboot.common.core.utils.StringUtils;
 import com.airboot.common.core.utils.file.FileUploadUtils;
 import com.airboot.common.core.utils.file.FileUtils;
+import com.airboot.common.core.utils.ip.AddressUtils;
 import com.airboot.common.model.vo.AjaxResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -26,6 +28,7 @@ import java.util.Map;
  */
 @Slf4j
 @RestController
+@RequestMapping("/common")
 public class CommonController {
     
     @Resource
@@ -37,7 +40,7 @@ public class CommonController {
      * @param fileName 文件名称
      * @param delete   是否删除
      */
-    @GetMapping("common/download")
+    @GetMapping("/download")
     public void fileDownload(String fileName, Boolean delete, HttpServletResponse response, HttpServletRequest request) {
         try {
             if (!FileUtils.isValidFilename(fileName)) {
@@ -62,7 +65,7 @@ public class CommonController {
     /**
      * 通用上传请求
      */
-    @PostMapping("/common/upload")
+    @PostMapping("/upload")
     public AjaxResult uploadFile(MultipartFile file) throws Exception {
         try {
             // 上传文件路径
@@ -82,7 +85,7 @@ public class CommonController {
     /**
      * 本地资源通用下载
      */
-    @GetMapping("/common/download/resource")
+    @GetMapping("/download/resource")
     public void resourceDownload(String name, HttpServletRequest request, HttpServletResponse response) throws Exception {
         // 本地资源路径
         String localPath = ProjectConfig.getProfile();
@@ -96,4 +99,13 @@ public class CommonController {
                 "attachment;fileName=" + FileUtils.setFileDownloadHeader(request, downloadName));
         FileUtils.writeBytes(downloadPath, response.getOutputStream());
     }
+    
+    /**
+     * 获取IP真实地址
+     */
+    @GetMapping("/ip-location")
+    public AjaxResult getIpLocation(String ip) {
+        return AjaxResult.success(AddressUtils.getRealAddressByIp(ip));
+    }
+    
 }

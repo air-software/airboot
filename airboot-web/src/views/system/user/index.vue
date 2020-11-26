@@ -145,9 +145,11 @@
               ></el-switch>
             </template>
           </el-table-column>
-          <el-table-column label="创建时间" align="center" prop="createTime" width="160">
+          <el-table-column label="最后登录" align="center" prop="loginDate" width="160">
             <template slot-scope="scope">
-              <span>{{ parseTime(scope.row.createTime) }}</span>
+              <el-tooltip placement="top" :content="scope.row.loginIp + (scope.row.loginLocation ? ' / ' + scope.row.loginLocation : '')">
+                <span>{{ scope.row.loginDate }}</span>
+              </el-tooltip>
             </template>
           </el-table-column>
           <el-table-column

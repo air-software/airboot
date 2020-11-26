@@ -1,10 +1,10 @@
 package com.airboot.common.core.utils.ip;
 
+import com.airboot.common.core.utils.StringUtils;
+
+import javax.servlet.http.HttpServletRequest;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-import javax.servlet.http.HttpServletRequest;
-
-import com.airboot.common.core.utils.StringUtils;
 
 /**
  * 获取IP方法
@@ -18,24 +18,28 @@ public class IpUtils {
             return "unknown";
         }
         String ip = request.getHeader("x-forwarded-for");
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+        if (notFindIp(ip)) {
             ip = request.getHeader("Proxy-Client-IP");
         }
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+        if (notFindIp(ip)) {
             ip = request.getHeader("X-Forwarded-For");
         }
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+        if (notFindIp(ip)) {
             ip = request.getHeader("WL-Proxy-Client-IP");
         }
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+        if (notFindIp(ip)) {
             ip = request.getHeader("X-Real-IP");
         }
         
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+        if (notFindIp(ip)) {
             ip = request.getRemoteAddr();
         }
         
         return "0:0:0:0:0:0:0:1".equals(ip) ? "127.0.0.1" : ip;
+    }
+    
+    private static boolean notFindIp(String ip) {
+        return StringUtils.isBlank(ip) || "unknown".equalsIgnoreCase(ip);
     }
     
     public static boolean internalIp(String ip) {
