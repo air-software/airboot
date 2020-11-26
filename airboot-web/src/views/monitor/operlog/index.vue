@@ -103,10 +103,10 @@
       <el-table-column label="系统模块" align="center" prop="title" />
       <el-table-column label="操作类型" align="center" prop="businessType" />
       <el-table-column label="请求方式" align="center" prop="requestMethod" />
-      <el-table-column label="操作人员" align="center" prop="operName" width="110" :show-overflow-tooltip="true" />
-      <el-table-column label="操作IP" align="center" prop="operIp" width="130" :show-overflow-tooltip="true" />
-      <el-table-column label="操作地点" align="center" prop="operLocation" width="130" :show-overflow-tooltip="true" />
-      <el-table-column label="操作设备" align="center" prop="device" :show-overflow-tooltip="true" />
+      <el-table-column label="操作人员" align="center" prop="operName" width="110" show-overflow-tooltip />
+      <el-table-column label="操作IP" align="center" prop="operIp" width="130" show-overflow-tooltip />
+      <el-table-column label="操作地点" align="center" prop="operLocation" width="130" show-overflow-tooltip />
+      <el-table-column label="操作设备" align="center" prop="device" show-overflow-tooltip />
       <el-table-column label="操作结果" align="center" prop="status" />
       <el-table-column label="操作时间" align="center" prop="operTime" width="180">
         <template slot-scope="scope">

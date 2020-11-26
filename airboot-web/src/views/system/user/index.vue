@@ -131,9 +131,9 @@
         <el-table v-loading="loading" :data="tableData" @selection-change="handleSelectionChange">
           <el-table-column type="selection" width="50" align="center" />
           <el-table-column label="用户编号" align="center" prop="id" />
-          <el-table-column label="用户名" align="center" prop="username" :show-overflow-tooltip="true" />
-          <el-table-column label="用户昵称" align="center" prop="nickname" :show-overflow-tooltip="true" />
-          <el-table-column label="部门" align="center" prop="dept.deptName" :show-overflow-tooltip="true" />
+          <el-table-column label="用户名" align="center" prop="username" show-overflow-tooltip />
+          <el-table-column label="用户昵称" align="center" prop="nickname" show-overflow-tooltip />
+          <el-table-column label="部门" align="center" prop="dept.deptName" show-overflow-tooltip />
           <el-table-column label="手机号码" align="center" prop="mobile" width="120" />
           <el-table-column label="状态" align="center">
             <template slot-scope="scope">

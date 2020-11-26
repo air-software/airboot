@@ -23,7 +23,7 @@
             prop="columnName"
             min-width="100"
             class-name="allowDrag"
-            :show-overflow-tooltip="true"
+            show-overflow-tooltip
           />
           <el-table-column label="字段描述" min-width="120">
             <template slot-scope="scope">
@@ -34,7 +34,7 @@
             label="物理类型"
             prop="columnType"
             min-width="100"
-            :show-overflow-tooltip="true"
+            show-overflow-tooltip
           />
           <el-table-column label="Java类型" min-width="110">
             <template slot-scope="scope">

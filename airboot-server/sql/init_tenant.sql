@@ -202,7 +202,6 @@ create table sys_menu (
 insert into sys_menu values('1', '系统管理', '0', '1', 'system',           '',   0, 0, 0, 1, '', 'system',   'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '系统管理目录', 0, 0);
 insert into sys_menu values('2', '系统监控', '0', '2', 'monitor',          '',   0, 0, 0, 1, '', 'monitor',  'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '系统监控目录', 0, 0);
 insert into sys_menu values('3', '系统工具', '0', '3', 'tool',             '',   0, 0, 0, 1, '', 'tool',     'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '系统工具目录', 0, 0);
-insert into sys_menu values('4', 'Gitee', '0', '4', 'https://gitee.com/air-soft/airboot', '', 1, 0, 0, 1, '', 'guide',    'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', 'Airboot Gitee地址', 0, 0);
 -- 二级菜单
 insert into sys_menu values('100',  '用户管理', '1',   '1', 'user',       'system/user/index',        0, 1, 0, 1, 'system:user:page',        'user',          'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '用户管理菜单', 0, 0);
 insert into sys_menu values('101',  '角色管理', '1',   '2', 'role',       'system/role/index',        0, 1, 0, 1, 'system:role:page',        'peoples',       'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '角色管理菜单', 0, 0);
@@ -324,7 +323,6 @@ create table sys_role_menu (
 insert into sys_role_menu values ('2', '1');
 insert into sys_role_menu values ('2', '2');
 insert into sys_role_menu values ('2', '3');
-insert into sys_role_menu values ('2', '4');
 insert into sys_role_menu values ('2', '100');
 insert into sys_role_menu values ('2', '101');
 insert into sys_role_menu values ('2', '102');

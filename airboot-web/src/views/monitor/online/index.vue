@@ -36,10 +36,10 @@
           <span>{{(current - 1) * size + scope.$index + 1}}</span>
         </template>
       </el-table-column>
-      <el-table-column label="会话编号" align="center" prop="uuid" :show-overflow-tooltip="true" />
-      <el-table-column label="登录账号" align="center" prop="account" width="110" :show-overflow-tooltip="true" />
+      <el-table-column label="会话编号" align="center" prop="uuid" show-overflow-tooltip />
+      <el-table-column label="登录账号" align="center" prop="account" width="110" show-overflow-tooltip />
       <el-table-column label="部门名称" align="center" prop="deptName" />
-      <el-table-column label="登录地点" align="center" prop="ipaddr" width="240" :show-overflow-tooltip="true">
+      <el-table-column label="登录地点" align="center" prop="ipaddr" width="240" show-overflow-tooltip>
         <template slot-scope="scope">
           <el-button
             title="点击IP查询真实地址"
@@ -50,7 +50,7 @@
           <span v-if="scope.row.loginLocation && scope.row.loginLocation !== '获取中'">/ {{ scope.row.loginLocation }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="登录设备" align="center" prop="device" :show-overflow-tooltip="true" />
+      <el-table-column label="登录设备" align="center" prop="device" show-overflow-tooltip />
       <el-table-column label="浏览器" align="center" prop="browser" />
       <el-table-column label="操作系统" align="center" prop="os" />
       <el-table-column label="登录时间" align="center" prop="loginTime" width="180">

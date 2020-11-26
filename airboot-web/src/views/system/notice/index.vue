@@ -70,7 +70,7 @@
         label="公告标题"
         align="center"
         prop="noticeTitle"
-        :show-overflow-tooltip="true"
+        show-overflow-tooltip
       />
       <el-table-column
         label="公告类型"
