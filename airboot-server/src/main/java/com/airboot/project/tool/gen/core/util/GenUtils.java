@@ -8,6 +8,7 @@ import com.airboot.project.tool.gen.model.entity.GenTable;
 import com.airboot.project.tool.gen.model.entity.GenTableColumn;
 import com.airboot.project.tool.gen.model.enums.HtmlTypeEnum;
 import com.airboot.project.tool.gen.model.enums.QueryTypeEnum;
+import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.lang3.RegExUtils;
 
 import java.util.Arrays;
@@ -29,6 +30,12 @@ public class GenUtils {
         genTable.setBusinessName(getBusinessName(genTable.getTableName()));
         genTable.setFunctionName(replaceText(genTable.getTableComment()));
         genTable.setFunctionAuthor(GenConfig.getAuthor());
+    
+        // 初始化额外选项
+        JSONObject optionsJson = new JSONObject();
+        // 自动生成 Mybatis 的 ResultMap
+        optionsJson.put("autoResultMap", true);
+        genTable.setOptions(optionsJson.toJSONString());
     }
     
     /**
