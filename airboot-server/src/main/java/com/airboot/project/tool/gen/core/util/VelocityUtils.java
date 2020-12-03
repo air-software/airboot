@@ -235,6 +235,7 @@ public class VelocityUtils {
             if (GenConstants.TYPE_DATE.equals(column.getJavaType())) {
                 importList.add("java.util.Date");
                 importList.add("com.fasterxml.jackson.annotation.JsonFormat");
+                importList.add("com.airboot.common.core.utils.DateUtils");
             } else if (GenConstants.TYPE_BIGDECIMAL.equals(column.getJavaType())) {
                 importList.add("java.math.BigDecimal");
             } else if (GenConstants.TYPE_ENUM.equals(column.getJavaType())) {
