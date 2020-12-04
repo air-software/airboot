@@ -12,7 +12,9 @@ import com.airboot.common.core.aspectj.lang.annotation.Log;
 import com.airboot.project.monitor.model.enums.BusinessTypeEnum;
 import ${packageName}.model.entity.${ClassName};
 import ${packageName}.model.vo.Search${ClassName}VO;
+#if($table.tplCategory.getCode() == "crud")
 import com.baomidou.mybatisplus.core.metadata.IPage;
+#end
 import ${packageName}.service.I${ClassName}Service;
 import com.airboot.common.component.BaseController;
 import com.airboot.common.model.vo.AjaxResult;
@@ -39,6 +41,7 @@ public class ${ClassName}Controller extends BaseController {
     @Resource
     private I${ClassName}Service ${className}Service;
 
+#if($table.tplCategory.getCode() == "crud")
     /**
      * 查询${functionName}分页
      */
@@ -49,6 +52,7 @@ public class ${ClassName}Controller extends BaseController {
         return AjaxResult.success(page);
     }
 
+#end
     /**
      * 查询${functionName}列表，入参为空时可查询全部
      */

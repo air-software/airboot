@@ -1,5 +1,6 @@
 import request from '@/utils/request'
 
+#if($table.tplCategory.getCode() == "crud")
 // 查询${functionName}分页
 export function page${BusinessName}(query) {
   return request({
@@ -9,6 +10,7 @@ export function page${BusinessName}(query) {
   })
 }
 
+#end
 // 查询${functionName}列表，入参为空时可查询全部
 export function list${BusinessName}(query) {
   return request({

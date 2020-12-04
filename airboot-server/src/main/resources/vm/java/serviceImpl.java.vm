@@ -5,7 +5,9 @@ import org.springframework.stereotype.Service;
 import ${packageName}.mapper.${ClassName}Mapper;
 import ${packageName}.model.entity.${ClassName};
 import ${packageName}.model.vo.Search${ClassName}VO;
+#if($table.tplCategory.getCode() == "crud")
 import com.baomidou.mybatisplus.core.metadata.IPage;
+#end
 import ${packageName}.service.I${ClassName}Service;
 
 import javax.annotation.Resource;
@@ -24,6 +26,7 @@ public class ${ClassName}ServiceImpl implements I${ClassName}Service {
     @Resource
     private ${ClassName}Mapper ${className}Mapper;
 
+#if($table.tplCategory.getCode() == "crud")
     /**
      * 查询${functionName}分页
      *
@@ -35,6 +38,7 @@ public class ${ClassName}ServiceImpl implements I${ClassName}Service {
         return ${className}Mapper.findPage(search);
     }
 
+#end
     /**
      * 查询${functionName}列表，入参为空时可查询全部
      * 

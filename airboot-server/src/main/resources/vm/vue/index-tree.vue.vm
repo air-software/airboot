@@ -12,7 +12,7 @@
 #else
 #set($comment=$column.columnComment)
 #end
-#if($htmlType == "input")
+#if($htmlType == "input" || $htmlType == "textarea")
       <el-form-item label="${comment}" prop="${column.javaField}">
         <el-input
           v-model="queryParams.${column.javaField}"
@@ -268,7 +268,7 @@ export default {
     this.getList()
   },
   methods: {
-    /** 查询${functionName}列表 */
+    // 查询${functionName}列表
     getList() {
       this.loading = true
 #if($isDateRange=="true")
@@ -294,7 +294,7 @@ export default {
     },
 #end
 #end
-    /** 转换${functionName}数据结构 */
+    // 转换${functionName}数据结构
     normalizer(node) {
       if (node.children && !node.children.length) {
         delete node.children
@@ -305,7 +305,7 @@ export default {
         children: node.children
       }
     },
-	/** 查询下拉树结构 */
+    // 查询下拉树结构
     getTreeselect() {
       list${BusinessName}().then(data => {
         this.${businessName}Options = []
@@ -314,11 +314,11 @@ export default {
         this.${businessName}Options.push(treeData)
       })
     },
-    /** 搜索按钮操作 */
+    // 搜索按钮操作
     handleQuery() {
       this.getList()
     },
-    /** 重置按钮操作 */
+    // 重置按钮操作
     resetQuery() {
 #if($isDateRange=="true")
       this.dateRange = []
@@ -326,17 +326,17 @@ export default {
       this.resetForm('queryForm')
       this.handleQuery()
     },
-    /** 新增按钮操作 */
+    // 新增按钮操作
     handleAdd() {
       this.reset()
-	  this.getTreeselect()
+      this.getTreeselect()
       this.open = true
       this.title = '添加${functionName}'
     },
-    /** 修改按钮操作 */
+    // 修改按钮操作
     handleUpdate(row) {
       this.reset()
-	  this.getTreeselect()
+      this.getTreeselect()
       if (row !== undefined) {
         this.form.${treeParentCode} = row.${treeCode}
       }
@@ -371,7 +371,7 @@ export default {
       }
       this.resetForm('form')
     },
-    /** 提交按钮 */
+    // 提交按钮
     submitForm() {
       this.#[[$]]#refs['form'].validate(valid => {
         if (valid) {
@@ -392,18 +392,18 @@ export default {
         }
       })
     },
-    /** 删除按钮操作 */
+    // 删除按钮操作
     handleDelete(row) {
       this.$confirm('是否确认删除${functionName}编号为【' + row.${pkColumn.javaField} + '】的数据项?', '警告', {
-          confirmButtonText: '确定',
-          cancelButtonText: '取消',
-          type: 'warning'
-        }).then(function() {
-          return del${BusinessName}(row.${pkColumn.javaField})
-        }).then(() => {
-          this.getList()
-          this.msgSuccess('删除成功')
-        }).catch(function() {})
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(function() {
+        return del${BusinessName}(row.${pkColumn.javaField})
+      }).then(() => {
+        this.getList()
+        this.msgSuccess('删除成功')
+      }).catch(function() {})
     }
   }
 }

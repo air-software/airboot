@@ -2,7 +2,9 @@ package ${packageName}.service;
 
 import ${packageName}.model.entity.${ClassName};
 import ${packageName}.model.vo.Search${ClassName}VO;
+#if($table.tplCategory.getCode() == "crud")
 import com.baomidou.mybatisplus.core.metadata.IPage;
+#end
 
 import java.util.List;
 
@@ -14,6 +16,7 @@ import java.util.List;
  */
 public interface I${ClassName}Service {
 
+#if($table.tplCategory.getCode() == "crud")
     /**
      * 查询${functionName}分页
      *
@@ -22,6 +25,7 @@ public interface I${ClassName}Service {
      */
     IPage<${ClassName}> getPage(Search${ClassName}VO search);
 
+#end
     /**
      * 查询${functionName}列表，入参为空时可查询全部
      * 

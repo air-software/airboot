@@ -66,21 +66,28 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 #end
 #end
         </where>
+#if($table.tplCategory.getCode() == "tree")
+        order by parent_id, order_num
+#end
     </sql>
 
 #if(${autoResultMap})
+#if($table.tplCategory.getCode() == "crud")
     <select id="findPage" resultMap="${ClassName}Result">
         <include refid="selectListSql"/>
     </select>
 
+#end
     <select id="findList" resultMap="${ClassName}Result">
         <include refid="selectListSql"/>
     </select>
 #else
+#if($table.tplCategory.getCode() == "crud")
     <select id="findPage" resultType="${packageName}.model.entity.${ClassName}">
         <include refid="selectListSql"/>
     </select>
 
+#end
     <select id="findList" resultType="${packageName}.model.entity.${ClassName}">
         <include refid="selectListSql"/>
     </select>

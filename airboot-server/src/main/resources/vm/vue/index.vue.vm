@@ -12,7 +12,7 @@
 #else
 #set($comment=$column.columnComment)
 #end
-#if($htmlType == "input")
+#if($htmlType == "input" || $htmlType == "textarea")
       <el-form-item label="${comment}" prop="${column.javaField}">
         <el-input
           v-model="queryParams.${column.javaField}"
@@ -301,7 +301,7 @@ export default {
     this.getPage()
   },
   methods: {
-    /** 查询${functionName}分页 */
+    // 查询${functionName}分页
     getPage() {
       this.loading = true
 #if($isDateRange=="true")
@@ -328,12 +328,12 @@ export default {
     },
 #end
 #end
-    /** 搜索按钮操作 */
+    // 搜索按钮操作
     handleQuery() {
       this.queryParams.current = 1
       this.getPage()
     },
-    /** 重置按钮操作 */
+    // 重置按钮操作
     resetQuery() {
 #if($isDateRange=="true")
       this.dateRange = []
@@ -347,13 +347,13 @@ export default {
       this.single = selection.length !== 1
       this.multiple = !selection.length
     },
-    /** 新增按钮操作 */
+    // 新增按钮操作
     handleAdd() {
       this.reset()
       this.open = true
       this.title = '添加${functionName}'
     },
-    /** 修改按钮操作 */
+    // 修改按钮操作
     handleUpdate(row) {
       this.reset()
       const ${pkColumn.javaField} = row.${pkColumn.javaField} || this.ids
@@ -388,7 +388,7 @@ export default {
       }
       this.resetForm('form')
     },
-    /** 提交按钮 */
+    // 提交按钮
     submitForm() {
       this.#[[$]]#refs['form'].validate(valid => {
         if (valid) {
@@ -409,21 +409,21 @@ export default {
         }
       })
     },
-    /** 删除按钮操作 */
+    // 删除按钮操作
     handleDelete(row) {
       const ${pkColumn.javaField}s = row.${pkColumn.javaField} || this.ids
       this.$confirm('是否确认删除${functionName}编号为【' + ${pkColumn.javaField}s + '】的数据项?', '警告', {
-          confirmButtonText: '确定',
-          cancelButtonText: '取消',
-          type: 'warning'
-        }).then(function() {
-          return del${BusinessName}(${pkColumn.javaField}s)
-        }).then(() => {
-          this.getPage()
-          this.msgSuccess('删除成功')
-        }).catch(function() {})
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(function() {
+        return del${BusinessName}(${pkColumn.javaField}s)
+      }).then(() => {
+        this.getPage()
+        this.msgSuccess('删除成功')
+      }).catch(function() {})
     },
-    /** 导出按钮操作 */
+    // 导出按钮操作
     handleExport() {
 #if($isDateRange=="true")
       const queryParams = this.addDateRange(this.queryParams, this.dateRange)
@@ -431,14 +431,14 @@ export default {
       const queryParams = this.queryParams
 #end
       this.$confirm('是否确认导出所有${functionName}数据项?', '警告', {
-          confirmButtonText: '确定',
-          cancelButtonText: '取消',
-          type: 'warning'
-        }).then(function() {
-          return export${BusinessName}(queryParams)
-        }).then(data => {
-          this.download(data)
-        }).catch(function() {})
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(function() {
+        return export${BusinessName}(queryParams)
+      }).then(data => {
+        this.download(data)
+      }).catch(function() {})
     }
   }
 }

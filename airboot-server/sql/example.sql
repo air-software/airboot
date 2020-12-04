@@ -9,6 +9,10 @@ create table sys_table (
   id                bigint(20)      not null auto_increment    comment 'id',
 -- 如果是多租户模式，涉及到租户隔离的表要加上tenant_id字段
   tenant_id         bigint(20)      not null                   comment '租户id',
+-- 如果是树表，则以下三个字段 parent_id, ancestors, order_num 为必须
+  parent_id         bigint(20)      default 0                  comment '父级id',
+  ancestors         varchar(190)    default ''                 comment '祖级列表',
+  order_num         int(4)          default 0                  comment '显示顺序',
 -- 实体字段里，如果是boolean类型，可以参考下面的例子，注释中的（false=XX,true=XX）必须要有，在代码生成和导入导出时会进行自动转换，XX要替换成你所定义的描述文字。
   boolean_example   bit(1)          default 0                  comment '布尔举例（false=XX,true=XX）',
 -- 在代码生成时tinyint和smallint都会被解析为枚举类型，并且会根据一定的命名规则来自动匹配项目**.model.enums包中已有的枚举类，如status_example字段，会匹配到StatusExampleEnum枚举类。

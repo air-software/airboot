@@ -1,5 +1,6 @@
 package com.airboot.common.model.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -25,6 +26,7 @@ public class TreeEntity extends BaseEntity {
     /**
      * 父菜单名称
      */
+    @TableField(exist = false)
     private String parentName;
     
     /**
@@ -46,6 +48,7 @@ public class TreeEntity extends BaseEntity {
      * 子部门
      */
     @Builder.Default
+    @TableField(exist = false)
     private List<?> children = new ArrayList<>();
     
 }
