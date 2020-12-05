@@ -75,7 +75,7 @@
           type="primary"
           icon="el-icon-plus"
           size="mini"
-          @click="handleAdd"
+          @click="handleAdd()"
           v-hasPermi="['${moduleName}:${businessName}:add']"
         >新增</el-button>
       </el-form-item>
@@ -110,7 +110,7 @@
       <el-table-column label="${comment}" align="center" prop="${javaField}" />
 #end
 #end
-      <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
+      <el-table-column label="操作" align="center" width="200" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <el-button
             size="mini"
@@ -119,6 +119,13 @@
             @click="handleUpdate(scope.row)"
             v-hasPermi="['${moduleName}:${businessName}:edit']"
           >修改</el-button>
+          <el-button
+            size="mini"
+            type="text"
+            icon="el-icon-plus"
+            @click="handleAdd(scope.row)"
+            v-hasPermi="['${moduleName}:${businessName}:add']"
+          >新增</el-button>
           <el-button
             size="mini"
             type="text"
@@ -266,6 +273,7 @@ export default {
   },
   created() {
     this.getList()
+    this.getTreeselect()
   },
   methods: {
     // 查询${functionName}列表
@@ -327,9 +335,10 @@ export default {
       this.handleQuery()
     },
     // 新增按钮操作
-    handleAdd() {
+    handleAdd(row) {
       this.reset()
       this.getTreeselect()
+      this.form.${treeParentCode} = row && row.${treeCode}
       this.open = true
       this.title = '添加${functionName}'
     },
@@ -337,9 +346,6 @@ export default {
     handleUpdate(row) {
       this.reset()
       this.getTreeselect()
-      if (row !== undefined) {
-        this.form.${treeParentCode} = row.${treeCode}
-      }
       get${BusinessName}(row.${pkColumn.javaField}).then(data => {
         this.form = data
         this.open = true

@@ -29,7 +29,7 @@
           type="primary"
           icon="el-icon-plus"
           size="mini"
-          @click="handleAdd"
+          @click="handleAdd()"
           v-hasPermi="['system:dept:add']"
         >新增</el-button>
       </el-form-item>
@@ -192,6 +192,9 @@ export default {
   },
   created() {
     this.getList()
+    listDept().then(data => {
+      this.deptOptions = this.handleTree(data)
+    })
   },
   methods: {
     /** 查询部门列表 */
@@ -239,9 +242,7 @@ export default {
     /** 新增按钮操作 */
     handleAdd(row) {
       this.reset()
-      if (row) {
-        this.form.parentId = row.id
-      }
+      this.form.parentId = row && row.id
       this.open = true
       this.title = '添加部门'
       listDept().then(data => {

@@ -18,7 +18,7 @@
       </el-form-item>
       <el-form-item>
         <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">搜索</el-button>
-        <el-button type="primary" icon="el-icon-plus" size="mini" @click="handleAdd" v-hasPermi="['system:menu:add']">新增</el-button>
+        <el-button type="primary" icon="el-icon-plus" size="mini" @click="handleAdd()" v-hasPermi="['system:menu:add']">新增</el-button>
       </el-form-item>
     </el-form>
 
@@ -219,6 +219,7 @@ export default {
   },
   created() {
     this.getList()
+    this.getTreeselect()
   },
   methods: {
     // 选择图标
@@ -281,9 +282,7 @@ export default {
     handleAdd(row) {
       this.reset()
       this.getTreeselect()
-      if (row != null) {
-        this.form.parentId = row.id
-      }
+      this.form.parentId = row && row.id
       this.open = true
       this.title = '添加菜单'
     },
