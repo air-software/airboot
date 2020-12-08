@@ -200,7 +200,7 @@
         </el-form-item>
 #elseif($htmlType == "textarea")
         <el-form-item label="${comment}" prop="${field}">
-          <el-input v-model="form.${field}" type="textarea" placeholder="请输入内容" />
+          <el-input v-model="form.${field}" type="textarea" placeholder="请输入${comment}" />
         </el-form-item>
 #end
 #end

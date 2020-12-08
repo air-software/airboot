@@ -60,7 +60,7 @@ public class GenConstants {
     /**
      * 数据库数字类型
      */
-    public static final String[] COLUMNTYPE_NUMBER = {"mediumint", "int", "number", "integer", "bigint", "float", "float", "double", "decimal"};
+    public static final String[] COLUMNTYPE_NUMBER = {"mediumint", "int", "number", "integer", "bigint", "float", "double", "decimal"};
     
     /**
      * 数据库枚举类型
