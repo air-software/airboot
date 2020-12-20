@@ -65,7 +65,7 @@
 
     <el-table v-loading="loading" :data="tableData" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" align="center" />
-      <el-table-column label="序号" align="center" prop="id" width="100" />
+      <el-table-column label="公告编号" align="center" prop="id" width="80" />
       <el-table-column
         label="公告标题"
         align="center"

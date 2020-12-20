@@ -79,12 +79,8 @@
     </el-row>
 
     <el-table v-loading="loading" :data="tableData" @selection-change="handleSelectionChange">
-      <el-table-column type="selection" width="55"></el-table-column>
-      <el-table-column label="序号" type="index" width="50" align="center">
-        <template slot-scope="scope">
-          <span>{{(queryParams.current - 1) * queryParams.size + scope.$index + 1}}</span>
-        </template>
-      </el-table-column>
+      <el-table-column type="selection" width="55" align="center"></el-table-column>
+      <el-table-column label="表编号" prop="id" width="60" align="center" />
       <el-table-column
         label="表名称"
         align="center"
