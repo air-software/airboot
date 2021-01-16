@@ -60,7 +60,7 @@ public class SysProfileController extends BaseController {
         if (userService.updateUserProfile(user)) {
             LoginUser loginUser = LoginUserContextHolder.getLoginUser();
             // 更新缓存用户信息
-            loginUser.getUser().setNickname(user.getNickname());
+            loginUser.getUser().setPersonName(user.getPersonName());
             loginUser.getUser().setMobile(user.getMobile());
             loginUser.getUser().setEmail(user.getEmail());
             loginUser.getUser().setGender(user.getGender());

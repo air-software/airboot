@@ -24,6 +24,11 @@ public class SearchSysUserVO extends BaseSearchVO {
     private String username;
     
     /**
+     * 姓名
+     */
+    private String personName;
+    
+    /**
      * 手机号码
      */
     private String mobile;

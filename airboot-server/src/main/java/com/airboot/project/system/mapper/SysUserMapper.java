@@ -15,7 +15,7 @@ import java.util.List;
 public interface SysUserMapper extends MyBaseMapper<SysUser> {
     
     /**
-     * 查询分页
+     * 查询用户分页
      *
      * @param search 查询条件
      * @return 分页结果
@@ -23,10 +23,10 @@ public interface SysUserMapper extends MyBaseMapper<SysUser> {
     IPage<SysUser> findPage(SearchSysUserVO search);
     
     /**
-     * 根据条件查询用户列表
+     * 查询用户列表
      *
      * @param search 查询条件
-     * @return 用户信息集合信息
+     * @return 用户列表
      */
     List<SysUser> findList(SearchSysUserVO search);
     

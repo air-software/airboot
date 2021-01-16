@@ -52,15 +52,15 @@ create table sys_user (
   id           bigint(20)      not null auto_increment    comment '用户ID',
   dept_id           bigint(20)      not null               comment '部门ID',
   username         varchar(50)     not null                   comment '用户名',
-  nickname         varchar(50)     not null                   comment '用户昵称',
+  person_name       varchar(50)     default ''                   comment '用户姓名',
   email             varchar(64)     default ''                 comment '用户邮箱',
   mobile            varchar(20)     default ''                 comment '手机号码',
   gender            tinyint(4)       default 0                comment '用户性别（0=保密,1=男,2=女）',
   avatar            varchar(100)    default ''                 comment '头像地址',
   password          varchar(100)    default ''                 comment '密码',
-  person_name       varchar(50)     default ''                   comment '用户姓名',
   id_card           varchar(50)     default ''                   comment '证件号码',
   card_type         tinyint(4)      default 1                   comment '证件类型',
+  nickname         varchar(50)     default ''                  comment '用户昵称',
   status            tinyint(4)       default 1                comment '帐号状态（0=停用,1=正常）',
   login_ip          varchar(50)     default ''                 comment '最后登录IP',
   login_location    varchar(190)    default ''                 comment '最后登录地点',
@@ -79,8 +79,8 @@ create table sys_user (
 -- ----------------------------
 -- 初始化-用户信息表数据
 -- ----------------------------
-insert into sys_user values(1,  103, 'admin', 'airoland', '123456@qq.com', '15888888888', '1', '', '41ae2142375ca87970787369850d8790330734b21cb8ee4e', '', '', 1, 1, '127.0.0.1', '内网地址', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '管理员', 0, 0);
-insert into sys_user values(2,  105, 'airboot', 'airoland', '456789@qq.com',  '15666666666', '1', '', '41ae2142375ca87970787369850d8790330734b21cb8ee4e', '', '', 1, 1, '127.0.0.1', '内网地址', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '测试员', 0, 0);
+insert into sys_user values(1,  103, 'admin', '管理员', '123456@qq.com', '15888888888', '1', '', '41ae2142375ca87970787369850d8790330734b21cb8ee4e', '', 1, '', 1, '127.0.0.1', '内网地址', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '管理员', 0, 0);
+insert into sys_user values(2,  105, 'airboot', '测试员', '456789@qq.com',  '15666666666', '1', '', '41ae2142375ca87970787369850d8790330734b21cb8ee4e', '', 1, '', 1, '127.0.0.1', '内网地址', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '测试员', 0, 0);
 
 
 -- ----------------------------

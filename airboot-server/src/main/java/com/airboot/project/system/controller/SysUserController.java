@@ -50,13 +50,23 @@ public class SysUserController extends BaseController {
     private ISysUserOnlineService userOnlineService;
     
     /**
-     * 获取用户列表
+     * 获取用户分页
      */
     @PreAuthorize("system:user:page")
     @GetMapping("/page")
     public AjaxResult page(SearchSysUserVO search) {
         IPage<SysUser> page = userService.getPage(search);
         return AjaxResult.success(page);
+    }
+    
+    /**
+     * 获取用户列表
+     */
+    @PreAuthorize("system:user:page")
+    @GetMapping("/list")
+    public AjaxResult list(SearchSysUserVO search) {
+        List<SysUser> list = userService.getList(search);
+        return AjaxResult.success(list);
     }
     
     @Log(title = "用户管理", businessType = BusinessTypeEnum.导出)

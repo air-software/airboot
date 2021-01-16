@@ -59,7 +59,7 @@ public class SysUserServiceImpl implements ISysUserService {
     private ISysConfigService configService;
     
     /**
-     * 查询分页
+     * 查询用户分页
      *
      * @param search 查询条件
      * @return 分页结果
@@ -71,10 +71,10 @@ public class SysUserServiceImpl implements ISysUserService {
     }
     
     /**
-     * 根据条件分页查询用户列表
+     * 查询用户列表
      *
      * @param search 查询条件
-     * @return 用户信息集合信息
+     * @return 用户列表
      */
     @Override
     @DataScope(deptAlias = "d", userAlias = "u")
@@ -445,7 +445,7 @@ public class SysUserServiceImpl implements ISysUserService {
     private void checkRequiredUserField(SysUser user) {
         Assert.notNull(user.getDeptId(), "部门编号不能为空");
         Assert.hasText(user.getUsername(), "用户名不能为空");
-        Assert.hasText(user.getNickname(), "用户昵称不能为空");
+        Assert.hasText(user.getPersonName(), "姓名不能为空");
         Assert.hasText(user.getMobile(), "手机号码不能位空");
         Assert.notNull(user.getGender(), "性别不能为空");
     }

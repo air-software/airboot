@@ -38,6 +38,16 @@
               @keyup.enter.native="handleQuery"
             />
           </el-form-item>
+          <el-form-item label="姓名" prop="personName">
+            <el-input
+              v-model="queryParams.personName"
+              placeholder="请输入姓名"
+              clearable
+              size="small"
+              style="width: 240px"
+              @keyup.enter.native="handleQuery"
+            />
+          </el-form-item>
           <el-form-item label="手机号码" prop="mobile">
             <el-input
               v-model="queryParams.mobile"
@@ -132,7 +142,7 @@
           <el-table-column type="selection" width="50" align="center" />
           <el-table-column label="用户编号" align="center" prop="id" />
           <el-table-column label="用户名" align="center" prop="username" show-overflow-tooltip />
-          <el-table-column label="用户昵称" align="center" prop="nickname" show-overflow-tooltip />
+          <el-table-column label="姓名" align="center" prop="personName" show-overflow-tooltip />
           <el-table-column label="部门" align="center" prop="dept.deptName" show-overflow-tooltip />
           <el-table-column label="手机号码" align="center" prop="mobile" width="120" />
           <el-table-column label="状态" align="center">
@@ -200,8 +210,8 @@
       <el-form ref="form" :model="form" :rules="rules" label-width="80px">
         <el-row>
           <el-col :span="12">
-            <el-form-item label="用户昵称" prop="nickname">
-              <el-input v-model="form.nickname" placeholder="请输入用户昵称" maxlength="30" />
+            <el-form-item label="姓名" prop="personName">
+              <el-input v-model="form.personName" placeholder="请输入用户姓名" maxlength="30" />
             </el-form-item>
           </el-col>
           <el-col :span="12">
@@ -396,7 +406,8 @@ export default {
         username: undefined,
         mobile: undefined,
         status: undefined,
-        deptId: undefined
+        deptId: undefined,
+        personName: undefined
       },
       // 表单校验
       rules: {
@@ -408,8 +419,8 @@ export default {
             trigger: 'blur'
           }
         ],
-        nickname: [
-          { required: true, message: '用户昵称不能为空', trigger: 'blur' }
+        personName: [
+          { required: true, message: '用户姓名不能为空', trigger: 'blur' }
         ],
         deptId: [
           { required: true, message: '归属部门不能为空', trigger: 'blur' }
@@ -503,7 +514,7 @@ export default {
         id: undefined,
         deptId: undefined,
         username: undefined,
-        nickname: undefined,
+        personName: undefined,
         password: undefined,
         mobile: undefined,
         email: undefined,

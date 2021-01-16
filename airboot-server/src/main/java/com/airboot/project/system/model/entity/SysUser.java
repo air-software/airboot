@@ -63,11 +63,11 @@ public class SysUser extends BaseEntity {
     private String username;
     
     /**
-     * 用户昵称
+     * 用户姓名
      */
-    @Excel(name = "用户昵称")
-    @Size(min = 0, max = 30, message = "用户昵称长度不能超过30个字符")
-    private String nickname;
+    @Excel(name = "姓名")
+    @Size(min = 0, max = 30, message = "姓名长度不能超过30个字符")
+    private String personName;
     
     /**
      * 用户邮箱
@@ -94,11 +94,6 @@ public class SysUser extends BaseEntity {
     private String password;
     
     /**
-     * 用户真实姓名
-     */
-    private String personName;
-    
-    /**
      * 证件号码
      */
     private String idCard;
@@ -107,6 +102,11 @@ public class SysUser extends BaseEntity {
      * 证件类型
      */
     private CardTypeEnum cardType;
+    
+    /**
+     * 用户昵称
+     */
+    private String nickname;
     
     /**
      * 帐号状态（0停用 1正常）

@@ -1,7 +1,7 @@
 <template>
   <el-form ref="form" :model="user" :rules="rules" label-width="80px">
-    <el-form-item label="用户昵称" prop="nickname">
-      <el-input v-model="user.nickname" />
+    <el-form-item label="姓名" prop="personName">
+      <el-input v-model="user.personName" />
     </el-form-item>
     <el-form-item label="手机号码" prop="mobile">
       <el-input v-model="user.mobile" maxlength="20" />
@@ -35,8 +35,8 @@ export default {
     return {
       // 表单校验
       rules: {
-        nickname: [
-          { required: true, message: '用户昵称不能为空', trigger: 'blur' }
+        personName: [
+          { required: true, message: '姓名不能为空', trigger: 'blur' }
         ],
         email: [
           { required: true, message: '邮箱地址不能为空', trigger: 'blur' },

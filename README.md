@@ -26,6 +26,75 @@ Airboot是一个轻量级通用管理系统。
 
 ---
 
+## 如何开始
+
+### 环境准备
+
+- JDK 8+
+- Node.js 10+
+- MySQL 5.5+
+- Redis
+
+### 后端启动
+
+1. 在MySQL中新建一个数据库（字符集utf8mb4），随后将`airboot-server/sql/init.sql`导入数据库中建表；
+2. 检查`application.yml`及`application-dev.yml`中各项配置，尤其MySQL和Redis的链接地址；
+3. 在IDE中启动开发调试，观察日志输出，启动成功后会出现`Airboot Server启动成功！`的提示。
+
+### 前端启动
+
+在`airboot-web`目录下打开命令行：
+
+```
+# 使用淘宝源来加快下载速度
+npm config set registry http://registry.npm.taobao.org/
+
+# 解决node-sass可能下载出错的问题
+npm config set sass_binary_site https://npm.taobao.org/mirrors/node-sass/
+
+# 安装依赖
+npm install
+
+# 启动服务
+npm run dev
+```
+
+启动成功后浏览器访问 http://localhost/
+
+管理员账号 admin，密码 admin123
+
+---
+
+## 演示截图
+
+![登录页](https://images.gitee.com/uploads/images/2021/0116/212040_462e9c28_1048972.png)
+
+![首页](https://images.gitee.com/uploads/images/2021/0116/212250_1f031428_1048972.png)
+
+![用户管理](https://images.gitee.com/uploads/images/2021/0116/212311_4471004b_1048972.png)
+
+![添加用户](https://images.gitee.com/uploads/images/2021/0116/212415_881e162e_1048972.png)
+
+![角色权限](https://images.gitee.com/uploads/images/2021/0116/212434_044a8aed_1048972.png)
+
+![数据权限](https://images.gitee.com/uploads/images/2021/0116/212501_9da111fb_1048972.png)
+
+![添加菜单](https://images.gitee.com/uploads/images/2021/0116/212514_22002210_1048972.png)
+
+![表单构建](https://images.gitee.com/uploads/images/2021/0116/212528_4f95476c_1048972.png)
+
+![代码生成](https://images.gitee.com/uploads/images/2021/0116/212558_c6e14738_1048972.png)
+
+![字段信息](https://images.gitee.com/uploads/images/2021/0116/212629_88b994a7_1048972.png)
+
+![字段信息枚举类](https://images.gitee.com/uploads/images/2021/0116/212701_5310a01f_1048972.png)
+
+![生成信息](https://images.gitee.com/uploads/images/2021/0116/212750_d0566be5_1048972.png)
+
+![代码预览](https://images.gitee.com/uploads/images/2021/0116/212817_0bdb35a3_1048972.png)
+
+---
+
 ## FAQ
 
 ### 为什么去掉字典管理？

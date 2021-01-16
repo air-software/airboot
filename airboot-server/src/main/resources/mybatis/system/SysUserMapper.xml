@@ -8,13 +8,13 @@
         <id property="id" column="id"/>
         <result property="deptId" column="dept_id"/>
         <result property="username" column="username"/>
-        <result property="nickname" column="nickname"/>
+        <result property="personName" column="person_name"/>
         <result property="email" column="email"/>
         <result property="mobile" column="mobile"/>
         <result property="gender" column="gender"/>
         <result property="avatar" column="avatar"/>
         <result property="password" column="password"/>
-        <result property="personName" column="person_name"/>
+        <result property="nickname" column="nickname"/>
         <result property="idCard" column="id_card"/>
         <result property="cardType" column="card_type"/>
         <result property="status" column="status"/>
@@ -65,6 +65,9 @@
         where !u.deleted
         <if test="username != null and username != ''">
             AND u.username like concat('%', #{username}, '%')
+        </if>
+        <if test="personName != null and personName != ''">
+            AND u.person_name like concat('%', #{personName}, '%')
         </if>
         <if test="status != null">
             AND u.status = #{status}

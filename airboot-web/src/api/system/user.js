@@ -1,10 +1,19 @@
 import request from '@/utils/request'
 import { praseStrEmpty } from '@/utils/common'
 
-// 查询用户列表
+// 查询用户分页
 export function pageUser(query) {
   return request({
     url: '/system/user/page',
+    method: 'get',
+    params: query
+  })
+}
+
+// 查询用户列表
+export function listUser(query) {
+  return request({
+    url: '/system/user/list',
     method: 'get',
     params: query
   })
