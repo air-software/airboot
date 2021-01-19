@@ -1,29 +1,14 @@
 package ${packageName}.model.entity;
 
-#foreach ($column in $columns)
-#if($column.javaField == "tenantId")
-#set($isTenant=true)
-#end
-#end
 #foreach ($import in $importList)
 import ${import};
 #end
 #if($table.tplCategory.getCode() == "crud")
-#if($isTenant)
-import com.airboot.common.model.entity.TenantEntity;
-#set($Entity="TenantEntity")
-#else
 import com.airboot.common.model.entity.BaseEntity;
 #set($Entity="BaseEntity")
-#end
 #elseif($table.tplCategory.getCode() == "tree")
-#if($isTenant)
-import com.airboot.common.model.entity.TenantTreeEntity;
-#set($Entity="TenantTreeEntity")
-#else
 import com.airboot.common.model.entity.TreeEntity;
 #set($Entity="TreeEntity")
-#end
 #end
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;

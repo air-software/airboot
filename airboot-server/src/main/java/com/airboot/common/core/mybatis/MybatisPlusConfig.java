@@ -24,26 +24,6 @@ public class MybatisPlusConfig {
     public MybatisPlusInterceptor mybatisPlusInterceptor() {
         MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
         
-        // 多租户插件拦截器
-//        interceptor.addInnerInterceptor(new TenantLineInnerInterceptor(new TenantLineHandler() {
-//            // 租户ID获取方法，可通过缓存的用户信息获取
-//            @Override
-//            public Expression getTenantId() {
-//                try {
-//                    return new LongValue(LoginUserContextHolder.getLoginUser().getTenantId());
-//                } catch (Exception e) {
-//                    return new LongValue(0);
-//                }
-//            }
-//
-//            // 这是 default 方法,默认返回 false 表示所有表都需要拼多租户条件
-//            @Override
-//            public boolean ignoreTable(String tableName) {
-//                return StringUtils.equalsAnyIgnoreCase(tableName, Constants.IGNORE_TENANT_TABLE);
-//            }
-//        }));
-        
-        // 如果用了分页插件注意先 add TenantLineInnerInterceptor 再 add PaginationInnerInterceptor
         // 用了分页插件必须设置 MybatisConfiguration#useDeprecatedExecutor = false
         PaginationInnerInterceptor paginationInnerInterceptor = new PaginationInnerInterceptor(DbType.MYSQL);
         // 设置请求的页面大于最大页后操作， true调回到首页，false 继续请求  默认false

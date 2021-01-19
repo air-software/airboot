@@ -85,10 +85,4 @@ public class Constants {
         "/swagger-ui.html", "/**/v2**", "/swagger-resources/**", "/webjars/**", "/*/api-docs", "/druid/**",
         "/actuator**", "/error"};
     
-    /**
-     * 不走多租户拦截器的表
-     */
-    public static final String[] IGNORE_TENANT_TABLE = {"tables", "columns", "gen_table", "gen_table_column",
-        "sys_job", "sys_job_log", "sys_menu", "sys_tenant",
-        "sys_user_post", "sys_user_role", "sys_role_dept", "sys_role_menu"};
 }

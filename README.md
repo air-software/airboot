@@ -1,5 +1,7 @@
 # Airboot
 
+### 注意：如需开发SaaS多租户平台请移步至 <a href="https://gitee.com/air-soft/airboot-saas" target="_blank">Airboot-SaaS</a> 。
+
 ---
 
 ## 介绍
@@ -19,8 +21,7 @@ Airboot是一个轻量级通用管理系统。
 1. 将`Mybatis`替换为 <a href="https://baomidou.com/" target="_blank">Mybatis-Plus</a> ，简化了Mapper代码；
 2. 去掉了`字典管理`功能，全部改为枚举实现。这东西见仁见智，只是我个人更习惯用枚举，没有绝对的好坏。非要说原因的话，请看：[为什么去掉字典管理？](#为什么去掉字典管理)
 3. 去掉了较重的`Spring-Security`，改为自定义拦截器实现，原因请看：[为什么去掉Spring-Security？](#为什么去掉Spring-Security)
-4. 添加了可选配的多租户支持（需要用`init_tenant.sql`进行数据库初始化），采用【**共享数据库，共享数据表**】的模式（即通过表内的`tenant_id`来区分租户）。后期还会添加【**共享数据库，独立Schema**】的模式；
-5. 其他细节改动，如代码风格、框架配置、工具类封装、代码生成等等。
+4. 其他细节改动，如代码风格、框架配置、工具类封装、代码生成等等。
 
 **详细的使用文档**会在近期放出。
 

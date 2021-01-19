@@ -75,22 +75,22 @@ public class GenConstants {
     /**
      * 页面不需要编辑字段
      */
-    public static final String[] COLUMNNAME_NOT_EDIT = {"id", "create_by", "create_time", "update_by", "update_time", "deleted", "version", "tenant_id"};
+    public static final String[] COLUMNNAME_NOT_EDIT = {"id", "create_by", "create_time", "update_by", "update_time", "deleted", "version"};
     
     /**
      * 页面不需要显示的列表字段
      */
-    public static final String[] COLUMNNAME_NOT_LIST = {"id", "create_by", "create_time", "update_by", "update_time", "remark", "deleted", "version", "tenant_id"};
+    public static final String[] COLUMNNAME_NOT_LIST = {"id", "create_by", "create_time", "update_by", "update_time", "remark", "deleted", "version"};
     
     /**
      * 页面不需要查询字段
      */
-    public static final String[] COLUMNNAME_NOT_QUERY = {"id", "create_by", "create_time", "update_by", "update_time", "remark", "deleted", "version", "tenant_id"};
+    public static final String[] COLUMNNAME_NOT_QUERY = {"id", "create_by", "create_time", "update_by", "update_time", "remark", "deleted", "version"};
     
     /**
      * Entity基类字段
      */
-    public static final String[] BASE_ENTITY = {"id", "createBy", "createTime", "updateBy", "updateTime", "remark", "deleted", "version", "tenantId"};
+    public static final String[] BASE_ENTITY = {"id", "createBy", "createTime", "updateBy", "updateTime", "remark", "deleted", "version"};
     
     /**
      * Tree基类字段

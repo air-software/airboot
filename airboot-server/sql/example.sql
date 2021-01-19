@@ -7,8 +7,6 @@ drop table if exists sys_table;
 create table sys_table (
 -- 主键类型建议使用bigint，如果有分布式需求，可以设置mybatis-plus的id生成策略为assign_id
   id                bigint(20)      not null auto_increment    comment 'id',
--- 如果是多租户模式，涉及到租户隔离的表要加上tenant_id字段
-  tenant_id         bigint(20)      not null                   comment '租户id',
 -- 如果是树表，则以下三个字段 parent_id, ancestors, order_num 为必须
   parent_id         bigint(20)      default 0                  comment '父级id',
   ancestors         varchar(190)    default ''                 comment '祖级列表',
