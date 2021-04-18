@@ -27,6 +27,24 @@
           <el-option :value="false" label="否"/>
         </el-select>
       </el-form-item>
+      <el-form-item label="需要登录" prop="needLogin">
+        <el-select v-model="queryParams.needLogin" placeholder="需要登录" clearable size="small">
+          <el-option :value="true" label="是"/>
+          <el-option :value="false" label="否"/>
+        </el-select>
+      </el-form-item>
+      <el-form-item label="状态" prop="status">
+        <el-select
+          v-model="queryParams.status"
+          placeholder="状态"
+          clearable
+          size="small"
+          style="width: 240px"
+        >
+          <el-option value="正常" />
+          <el-option value="停用" />
+        </el-select>
+      </el-form-item>
       <el-form-item label="创建时间">
         <el-date-picker
           v-model="dateRange"
@@ -93,6 +111,8 @@
       <el-table-column label="参数键名" align="center" prop="configKey" show-overflow-tooltip />
       <el-table-column label="参数键值" align="center" prop="configValue" />
       <el-table-column label="系统内置" align="center" prop="builtIn" :formatter="builtInFormat" />
+      <el-table-column label="需要登录" align="center" prop="needLogin" :formatter="needLoginFormat" />
+      <el-table-column label="参数状态" align="center" prop="status" />
       <el-table-column label="备注" align="center" prop="remark" show-overflow-tooltip />
       <el-table-column label="创建时间" align="center" prop="createTime" width="180">
         <template slot-scope="scope">
@@ -137,12 +157,24 @@
           <el-input v-model="form.configKey" placeholder="请输入参数键名" />
         </el-form-item>
         <el-form-item label="参数键值" prop="configValue">
-          <el-input v-model="form.configValue" placeholder="请输入参数键值" />
+          <el-input type="textarea" v-model="form.configValue" placeholder="请输入参数键值" />
         </el-form-item>
         <el-form-item label="系统内置" prop="builtIn">
           <el-radio-group v-model="form.builtIn">
             <el-radio :label="true">是</el-radio>
             <el-radio :label="false">否</el-radio>
+          </el-radio-group>
+        </el-form-item>
+        <el-form-item label="需要登录" prop="needLogin">
+          <el-radio-group v-model="form.needLogin">
+            <el-radio :label="true">是</el-radio>
+            <el-radio :label="false">否</el-radio>
+          </el-radio-group>
+        </el-form-item>
+        <el-form-item label="状态" prop="status">
+          <el-radio-group v-model="form.status">
+            <el-radio label="正常" />
+            <el-radio label="停用" />
           </el-radio-group>
         </el-form-item>
         <el-form-item label="备注" prop="remark">
@@ -190,7 +222,9 @@ export default {
         size: 10,
         configName: undefined,
         configKey: undefined,
-        builtIn: undefined
+        builtIn: undefined,
+        needLogin: undefined,
+        status: undefined
       },
       // 表单参数
       form: {},
@@ -227,6 +261,10 @@ export default {
     builtInFormat(row, column) {
       return row.builtIn ? '是' : '否'
     },
+    // 参数是否需要登录字典翻译
+    needLoginFormat(row, column) {
+      return row.needLogin ? '是' : '否'
+    },
     // 取消按钮
     cancel() {
       this.open = false
@@ -240,6 +278,8 @@ export default {
         configKey: undefined,
         configValue: undefined,
         builtIn: false,
+        needLogin: true,
+        status: '正常',
         remark: undefined
       }
       this.resetForm('form')

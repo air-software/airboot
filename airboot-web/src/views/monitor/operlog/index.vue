@@ -14,7 +14,7 @@
       <el-form-item label="操作人员" prop="operName">
         <el-input
           v-model="queryParams.operName"
-          placeholder="请输入操作人员账号"
+          placeholder="请输入操作人员"
           clearable
           style="width: 240px;"
           size="small"
@@ -100,10 +100,12 @@
     <el-table v-loading="loading" :data="tableData" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" align="center" />
       <el-table-column label="日志编号" align="center" prop="id" />
-      <el-table-column label="系统模块" align="center" prop="title" />
+      <el-table-column label="系统模块" align="center" prop="title" width="220" />
       <el-table-column label="操作类型" align="center" prop="businessType" />
       <el-table-column label="请求方式" align="center" prop="requestMethod" />
-      <el-table-column label="操作人员" align="center" prop="operName" width="110" show-overflow-tooltip />
+      <el-table-column label="操作人员ID" v-if="$isAdmin" align="center" prop="operUserId" width="100" show-overflow-tooltip />
+      <el-table-column label="操作人员账号" v-if="$isAdmin" align="center" prop="operAccount" width="270" show-overflow-tooltip />
+      <el-table-column label="操作人员" align="center" prop="operName" width="150" show-overflow-tooltip />
       <el-table-column label="操作IP" align="center" prop="operIp" width="130" show-overflow-tooltip />
       <el-table-column label="操作地点" align="center" prop="operLocation" width="130" show-overflow-tooltip />
       <el-table-column label="操作设备" align="center" prop="device" show-overflow-tooltip />
@@ -145,6 +147,10 @@
             >{{ form.operName }} / {{ form.operIp }}<span v-if="form.operLocation"> / {{ form.operLocation }}</span></el-form-item>
           </el-col>
           <el-col :span="12">
+            <el-form-item label="浏览器：">{{ form.browser }}</el-form-item>
+            <el-form-item label="操作系统：">{{ form.os }}</el-form-item>
+          </el-col>
+          <el-col :span="12">
             <el-form-item label="请求地址：">{{ form.operUrl }}</el-form-item>
             <el-form-item label="请求方式：">{{ form.requestMethod }}</el-form-item>
           </el-col>
@@ -158,7 +164,7 @@
             <el-form-item label="返回参数：">{{ form.jsonResult }}</el-form-item>
           </el-col>
           <el-col :span="12">
-            <el-form-item label="操作状态：">
+            <el-form-item label="操作结果：">
               <div>{{ form.status }}</div>
             </el-form-item>
           </el-col>

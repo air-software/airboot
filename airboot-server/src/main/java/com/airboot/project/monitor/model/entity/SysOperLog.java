@@ -60,9 +60,27 @@ public class SysOperLog extends BaseEntity {
     private DeviceEnum device;
     
     /**
+     * 浏览器类型
+     */
+    @Excel(name = "浏览器类型")
+    private String browser;
+    
+    /**
+     * 操作系统
+     */
+    @Excel(name = "操作系统")
+    private String os;
+    
+    /**
      * 操作人员账号
      */
     @Excel(name = "操作人员账号")
+    private String operAccount;
+    
+    /**
+     * 操作人员姓名
+     */
+    @Excel(name = "操作人员姓名")
     private String operName;
     
     /**

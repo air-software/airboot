@@ -30,6 +30,14 @@ public interface ISysConfigService {
     String getByKey(String configKey);
     
     /**
+     * 根据键名查询无需登录验证的参数配置信息
+     *
+     * @param configKey 参数键名
+     * @return 参数键值
+     */
+    String getUnauthByKey(String configKey);
+    
+    /**
      * 查询分页
      *
      * @param search 查询条件

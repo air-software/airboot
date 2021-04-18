@@ -441,4 +441,16 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
         return REGEX_EMAIL.matcher(email).matches();
     }
     
+    /**
+     * 手机号脱敏
+     * @param mobile 15845678956
+     * @return 158****8956
+     */
+    public static String desensMobile(String mobile) {
+        if (isBlank(mobile)) {
+            return "";
+        }
+        return mobile.substring(0, 3) + "****" + mobile.substring(7, 11);
+    }
+    
 }

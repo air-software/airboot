@@ -14,6 +14,7 @@ import com.airboot.common.security.service.TokenService;
 import com.airboot.project.monitor.model.enums.BusinessTypeEnum;
 import com.airboot.project.system.model.entity.SysUser;
 import com.airboot.project.system.service.ISysUserService;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -56,7 +57,7 @@ public class SysProfileController extends BaseController {
      */
     @Log(title = "个人信息", businessType = BusinessTypeEnum.修改)
     @PutMapping
-    public AjaxResult updateProfile(@RequestBody SysUser user) {
+    public AjaxResult updateProfile(@Validated @RequestBody SysUser user) {
         if (userService.updateUserProfile(user)) {
             LoginUser loginUser = LoginUserContextHolder.getLoginUser();
             // 更新缓存用户信息
@@ -71,7 +72,7 @@ public class SysProfileController extends BaseController {
     }
     
     /**
-     * 重置密码
+     * 修改密码
      */
     @Log(title = "个人信息", businessType = BusinessTypeEnum.修改)
     @PutMapping("/updatePwd")

@@ -1,6 +1,7 @@
 package com.airboot.project.system.service.impl;
 
 import com.airboot.common.core.utils.StringUtils;
+import com.airboot.common.model.enums.StatusEnum;
 import com.airboot.project.system.mapper.SysConfigMapper;
 import com.airboot.project.system.model.entity.SysConfig;
 import com.airboot.project.system.model.vo.SearchSysConfigVO;
@@ -42,7 +43,19 @@ public class SysConfigServiceImpl implements ISysConfigService {
      */
     @Override
     public String getByKey(String configKey) {
-        SysConfig retConfig = configMapper.getOne(new LambdaQueryWrapper<SysConfig>().eq(SysConfig::getConfigKey, configKey), false);
+        SysConfig retConfig = configMapper.getOne(new LambdaQueryWrapper<SysConfig>().eq(SysConfig::getConfigKey, configKey).eq(SysConfig::getStatus, StatusEnum.正常), false);
+        return StringUtils.isNotNull(retConfig) ? retConfig.getConfigValue() : "";
+    }
+    
+    /**
+     * 根据键名查询无需登录验证的参数配置信息
+     *
+     * @param configKey 参数key
+     * @return 参数键值
+     */
+    @Override
+    public String getUnauthByKey(String configKey) {
+        SysConfig retConfig = configMapper.getOne(new LambdaQueryWrapper<SysConfig>().eq(SysConfig::getConfigKey, configKey).eq(SysConfig::isNeedLogin, false).eq(SysConfig::getStatus, StatusEnum.正常), false);
         return StringUtils.isNotNull(retConfig) ? retConfig.getConfigValue() : "";
     }
     

@@ -491,7 +491,7 @@ export default {
     // 用户状态修改
     handleStatusChange(row) {
       let text = row.status === '正常' ? '启用' : '停用'
-      this.$confirm('确认要“' + text + '”【' + row.username + '】用户吗?', '警告', {
+      this.$confirm(`确认要“${text}”【${row.personName}（${row.username}）】用户吗?`, '警告', {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
           type: 'warning'
@@ -573,7 +573,7 @@ export default {
     },
     /** 重置密码按钮操作 */
     handleResetPwd(row) {
-      this.$prompt('请输入【' + row.username + '】的新密码', '提示', {
+      this.$prompt(`请输入【${row.personName}（${row.username}）】的新密码`, '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
         inputType: 'password',

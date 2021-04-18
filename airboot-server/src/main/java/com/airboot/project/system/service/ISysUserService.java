@@ -38,6 +38,21 @@ public interface ISysUserService {
     SysUser getByAccount(String account);
     
     /**
+     * 查询所有正常用户
+     */
+    List<SysUser> getAllNormalList();
+    
+    /**
+     * 查询正常用户
+     */
+    SysUser getNormalOne(Long id);
+    
+    /**
+     * 根据手机号查询正常用户
+     */
+    SysUser getNormalOneByMobile(String mobile);
+    
+    /**
      * 通过用户ID查询用户
      *
      * @param userId 用户ID
@@ -156,4 +171,5 @@ public interface ISysUserService {
      * @return 结果
      */
     String importUser(List<SysUser> userList, boolean updateSupport);
+    
 }

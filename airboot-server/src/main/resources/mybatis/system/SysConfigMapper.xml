@@ -14,6 +14,12 @@
             <if test="builtIn != null">
                 AND built_in = #{builtIn}
             </if>
+            <if test="needLogin != null">
+                AND need_login = #{needLogin}
+            </if>
+            <if test="status != null">
+                AND status = #{status}
+            </if>
             <if test="configKey != null and configKey != ''">
                 AND config_key like concat('%', #{configKey}, '%')
             </if>

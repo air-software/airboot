@@ -109,6 +109,7 @@ export const constantRoutes = [
 
 export default new Router({
   mode: 'history', // 去掉url中的#
+  base: process.env.BASE_URL || '/', // 如果应用部署在子路径上，例如：https://www.example.com/admin/，则此处应配置为 admin，可以通过修改项目中.env.*文件里的BASE_URL参数来配置不同环境下的路径
   scrollBehavior: () => ({ y: 0 }),
   routes: constantRoutes
 })

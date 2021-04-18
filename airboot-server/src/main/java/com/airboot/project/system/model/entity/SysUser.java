@@ -3,6 +3,7 @@ package com.airboot.project.system.model.entity;
 import com.airboot.common.core.aspectj.lang.annotation.Excel;
 import com.airboot.common.core.aspectj.lang.annotation.Excel.Type;
 import com.airboot.common.core.aspectj.lang.annotation.Excels;
+import com.airboot.common.core.constant.Constants;
 import com.airboot.common.core.utils.DateUtils;
 import com.airboot.common.model.entity.BaseEntity;
 import com.airboot.common.model.enums.StatusEnum;
@@ -176,7 +177,7 @@ public class SysUser extends BaseEntity {
     }
     
     public static boolean isAdmin(Long userId) {
-        return userId != null && 1L == userId;
+        return Constants.ADMIN_USER_ID.equals(userId);
     }
     
 }

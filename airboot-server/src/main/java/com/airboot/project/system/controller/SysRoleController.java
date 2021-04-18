@@ -95,7 +95,7 @@ public class SysRoleController extends BaseController {
         
         int result = roleService.update(role);
         LoginUser loginUser = LoginUserContextHolder.getLoginUser();
-        if (!loginUser.getUser().isAdmin() && result > 0) {
+        if (!loginUser.isAdmin() && result > 0) {
             // 如果修改的角色是当前登录用户所属角色，则更新缓存中的用户权限
             for (SysRole userRole : loginUser.getUser().getRoles()) {
                 if (userRole.getId().equals(role.getId())) {

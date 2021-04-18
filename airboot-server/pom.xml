@@ -36,6 +36,7 @@
         <oshi.version>3.9.1</oshi.version>
         <velocity.version>1.7</velocity.version>
         <lombok.version>1.18.12</lombok.version>
+        <hutool.version>5.5.4</hutool.version>
     </properties>
 
     <dependencies>
@@ -245,6 +246,13 @@
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
             <optional>true</optional>
+        </dependency>
+    
+        <!-- Hutool -->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool.version}</version>
         </dependency>
 
     </dependencies>

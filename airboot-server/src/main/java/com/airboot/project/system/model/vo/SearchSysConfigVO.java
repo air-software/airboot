@@ -27,5 +27,10 @@ public class SearchSysConfigVO extends BaseSearchVO {
      * 是否系统内置
      */
     private Boolean builtIn;
+    
+    /**
+     * 是否需要登录
+     */
+    private Boolean needLogin;
 
 }

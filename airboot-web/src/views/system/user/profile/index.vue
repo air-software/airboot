@@ -36,8 +36,8 @@
                 <div class="pull-right">{{ roleGroup }}</div>
               </li>
               <li class="list-group-item">
-                <svg-icon icon-class="date" /> 创建日期
-                <div class="pull-right">{{ user.createTime }}</div>
+                <svg-icon icon-class="date" /> 最后登录
+                <div class="pull-right">{{ user.loginDate }}</div>
               </li>
             </ul>
           </div>

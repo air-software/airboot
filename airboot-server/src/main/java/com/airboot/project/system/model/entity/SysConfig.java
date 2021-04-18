@@ -2,6 +2,7 @@ package com.airboot.project.system.model.entity;
 
 import com.airboot.common.core.aspectj.lang.annotation.Excel;
 import com.airboot.common.model.entity.BaseEntity;
+import com.airboot.common.model.enums.StatusEnum;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -54,5 +55,17 @@ public class SysConfig extends BaseEntity {
      */
     @Excel(name = "是否系统内置", readConverterExp = "false=否,true=是")
     private boolean builtIn;
+    
+    /**
+     * 是否需要登录
+     */
+    @Excel(name = "是否需要登录", readConverterExp = "false=否,true=是")
+    private boolean needLogin;
+    
+    /**
+     * 状态（0停用 1正常）
+     */
+    @Excel(name = "状态")
+    private StatusEnum status;
     
 }

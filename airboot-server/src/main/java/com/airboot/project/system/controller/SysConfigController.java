@@ -66,6 +66,14 @@ public class SysConfigController extends BaseController {
     }
     
     /**
+     * 根据参数键名查询无需登录验证的参数值
+     */
+    @GetMapping(value = "/unauth-key/{configKey}")
+    public AjaxResult getUnauthConfigKey(@PathVariable String configKey) {
+        return AjaxResult.success(configService.getUnauthByKey(configKey));
+    }
+    
+    /**
      * 新增参数配置
      */
     @PreAuthorize("system:config:add")

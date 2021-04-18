@@ -16,7 +16,7 @@ create table sys_dept (
   dept_name         varchar(100)     default ''                 comment '部门名称',
   order_num         int(4)          default 0                  comment '显示顺序',
   leader            varchar(50)     default ''               comment '负责人',
-  mobile            varchar(20)     default ''               comment '负责人手机号码',
+  mobile            varchar(50)     default ''               comment '负责人手机号码',
   email             varchar(64)     default ''               comment '邮箱',
   status            tinyint(4)      default 1                  comment '部门状态（0=停用,1=正常）',
   create_by         varchar(64)     default ''                 comment '创建者',
@@ -32,16 +32,16 @@ create table sys_dept (
 -- ----------------------------
 -- 初始化-部门表数据
 -- ----------------------------
-insert into sys_dept values(100,  0,   '0',          '集团总部',   0, 'airoland', '15888888888', '123456@qq.com', 1, 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_dept values(101,  100, '0,100',      '北京分公司', 1, 'airoland', '15888888888', '123456@qq.com', 1, 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_dept values(102,  100, '0,100',      '长沙分公司', 2, 'airoland', '15888888888', '123456@qq.com', 1, 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_dept values(103,  101, '0,100,101',  '研发部门',   1, 'airoland', '15888888888', '123456@qq.com', 1, 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_dept values(104,  101, '0,100,101',  '市场部门',   2, 'airoland', '15888888888', '123456@qq.com', 1, 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_dept values(105,  101, '0,100,101',  '测试部门',   3, 'airoland', '15888888888', '123456@qq.com', 1, 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_dept values(106,  101, '0,100,101',  '财务部门',   4, 'airoland', '15888888888', '123456@qq.com', 1, 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_dept values(107,  101, '0,100,101',  '运维部门',   5, 'airoland', '15888888888', '123456@qq.com', 1, 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_dept values(108,  102, '0,100,102',  '市场部门',   1, 'airoland', '15888888888', '123456@qq.com', 1, 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_dept values(109,  102, '0,100,102',  '财务部门',   2, 'airoland', '15888888888', '123456@qq.com', 1, 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
+insert into sys_dept values(100,  0,   '0',          '集团总部',   0, 'airoland', '15888888888', '123456@qq.com', 1, 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_dept values(101,  100, '0,100',      '北京分公司', 1, 'airoland', '15888888888', '123456@qq.com', 1, 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_dept values(102,  100, '0,100',      '长沙分公司', 2, 'airoland', '15888888888', '123456@qq.com', 1, 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_dept values(103,  101, '0,100,101',  '研发部门',   1, 'airoland', '15888888888', '123456@qq.com', 1, 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_dept values(104,  101, '0,100,101',  '市场部门',   2, 'airoland', '15888888888', '123456@qq.com', 1, 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_dept values(105,  101, '0,100,101',  '测试部门',   3, 'airoland', '15888888888', '123456@qq.com', 1, 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_dept values(106,  101, '0,100,101',  '财务部门',   4, 'airoland', '15888888888', '123456@qq.com', 1, 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_dept values(107,  101, '0,100,101',  '运维部门',   5, 'airoland', '15888888888', '123456@qq.com', 1, 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_dept values(108,  102, '0,100,102',  '市场部门',   1, 'airoland', '15888888888', '123456@qq.com', 1, 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_dept values(109,  102, '0,100,102',  '财务部门',   2, 'airoland', '15888888888', '123456@qq.com', 1, 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
 
 
 -- ----------------------------
@@ -54,7 +54,7 @@ create table sys_user (
   username         varchar(50)     not null                   comment '用户名',
   person_name       varchar(50)     default ''                   comment '用户姓名',
   email             varchar(64)     default ''                 comment '用户邮箱',
-  mobile            varchar(20)     default ''                 comment '手机号码',
+  mobile            varchar(50)     default ''                 comment '手机号码',
   gender            tinyint(4)       default 0                comment '用户性别（0=保密,1=男,2=女）',
   avatar            varchar(100)    default ''                 comment '头像地址',
   password          varchar(100)    default ''                 comment '密码',
@@ -79,8 +79,8 @@ create table sys_user (
 -- ----------------------------
 -- 初始化-用户信息表数据
 -- ----------------------------
-insert into sys_user values(1,  103, 'admin', '管理员', '123456@qq.com', '15888888888', '1', '', '41ae2142375ca87970787369850d8790330734b21cb8ee4e', '', 1, '', 1, '127.0.0.1', '内网地址', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '管理员', 0, 0);
-insert into sys_user values(2,  105, 'airboot', '测试员', '456789@qq.com',  '15666666666', '1', '', '41ae2142375ca87970787369850d8790330734b21cb8ee4e', '', 1, '', 1, '127.0.0.1', '内网地址', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '测试员', 0, 0);
+insert into sys_user values(1,  103, 'admin', '管理员', '123456@qq.com', '15888888888', '1', '', '41ae2142375ca87970787369850d8790330734b21cb8ee4e', '', 1, '', 1, '127.0.0.1', '内网地址', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '管理员', 0, 0);
+insert into sys_user values(2,  105, 'airboot', '测试员', '456789@qq.com',  '15666666666', '1', '', '41ae2142375ca87970787369850d8790330734b21cb8ee4e', '', 1, '', 1, '127.0.0.1', '内网地址', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '测试员', 0, 0);
 
 
 -- ----------------------------
@@ -106,10 +106,10 @@ create table sys_post (
 -- ----------------------------
 -- 初始化-岗位信息表数据
 -- ----------------------------
-insert into sys_post values(1, 'ceo',  '董事长',    1, 1, 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_post values(2, 'se',   '项目经理',  2, 1, 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_post values(3, 'hr',   '人力资源',  3, 1, 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_post values(4, 'user', '普通员工',  4, 1, 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
+insert into sys_post values(1, 'ceo',  '董事长',    1, 1, 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_post values(2, 'se',   '项目经理',  2, 1, 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_post values(3, 'hr',   '人力资源',  3, 1, 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_post values(4, 'user', '普通员工',  4, 1, 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
 
 
 -- ----------------------------
@@ -136,8 +136,8 @@ create table sys_role (
 -- ----------------------------
 -- 初始化-角色信息表数据
 -- ----------------------------
-insert into sys_role values('1', '管理员',   'admin',  1, 1, 1, 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '管理员', 0, 0);
-insert into sys_role values('2', '普通角色', 'common', 2, 2, 1, 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '普通角色', 0, 0);
+insert into sys_role values('1', '管理员',   'admin',  1, 1, 1, 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '管理员', 0, 0);
+insert into sys_role values('2', '普通角色', 'common', 2, 2, 1, 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '普通角色', 0, 0);
 
 
 -- ----------------------------
@@ -171,95 +171,95 @@ create table sys_menu (
 -- 初始化-菜单信息表数据
 -- ----------------------------
 -- 一级菜单
-insert into sys_menu values('1', '系统管理', '0', '1', 'system',           '',   0, 0, 0, 1, '', 'system',   'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '系统管理目录', 0, 0);
-insert into sys_menu values('2', '系统监控', '0', '2', 'monitor',          '',   0, 0, 0, 1, '', 'monitor',  'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '系统监控目录', 0, 0);
-insert into sys_menu values('3', '系统工具', '0', '3', 'tool',             '',   0, 0, 0, 1, '', 'tool',     'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '系统工具目录', 0, 0);
+insert into sys_menu values('1', '系统管理', '0', '1', 'system',           '',   0, 0, 0, 1, '', 'system',   'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '系统管理目录', 0, 0);
+insert into sys_menu values('2', '系统监控', '0', '2', 'monitor',          '',   0, 0, 0, 1, '', 'monitor',  'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '系统监控目录', 0, 0);
+insert into sys_menu values('3', '系统工具', '0', '3', 'tool',             '',   0, 0, 0, 1, '', 'tool',     'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '系统工具目录', 0, 0);
 -- 二级菜单
-insert into sys_menu values('100',  '用户管理', '1',   '1', 'user',       'system/user/index',        0, 1, 0, 1, 'system:user:page',        'user',          'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '用户管理菜单', 0, 0);
-insert into sys_menu values('101',  '角色管理', '1',   '2', 'role',       'system/role/index',        0, 1, 0, 1, 'system:role:page',        'peoples',       'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '角色管理菜单', 0, 0);
-insert into sys_menu values('102',  '菜单管理', '1',   '3', 'menu',       'system/menu/index',        0, 1, 0, 1, 'system:menu:list',        'tree-table',    'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '菜单管理菜单', 0, 0);
-insert into sys_menu values('103',  '部门管理', '1',   '4', 'dept',       'system/dept/index',        0, 1, 0, 1, 'system:dept:list',        'tree',          'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '部门管理菜单', 0, 0);
-insert into sys_menu values('104',  '岗位管理', '1',   '5', 'post',       'system/post/index',        0, 1, 0, 1, 'system:post:page',        'post',          'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '岗位管理菜单', 0, 0);
-insert into sys_menu values('106',  '参数设置', '1',   '7', 'config',     'system/config/index',      0, 1, 0, 1, 'system:config:page',      'edit',          'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '参数设置菜单', 0, 0);
-insert into sys_menu values('107',  '通知公告', '1',   '8', 'notice',     'system/notice/index',      0, 1, 0, 1, 'system:notice:page',      'message',       'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '通知公告菜单', 0, 0);
-insert into sys_menu values('108',  '日志管理', '1',   '9', 'log',        'system/log/index',         0, 0, 0, 1, '',                        'log',           'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '日志管理菜单', 0, 0);
-insert into sys_menu values('109',  '在线用户', '2',   '1', 'online',     'monitor/online/index',     0, 1, 0, 1, 'monitor:online:page',     'online',        'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '在线用户菜单', 0, 0);
-insert into sys_menu values('110',  '定时任务', '2',   '2', 'job',        'monitor/job/index',        0, 1, 0, 1, 'monitor:job:page',        'job',           'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '定时任务菜单', 0, 0);
-insert into sys_menu values('111',  '数据监控', '2',   '3', 'druid',      'monitor/druid/index',      0, 1, 0, 1, 'monitor:druid:list',      'druid',         'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '数据监控菜单', 0, 0);
-insert into sys_menu values('112',  '服务监控', '2',   '4', 'server',     'monitor/server/index',     0, 1, 0, 1, 'monitor:server:list',     'server',        'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '服务监控菜单', 0, 0);
-insert into sys_menu values('113',  '表单构建', '3',   '1', 'build',      'tool/build/index',         0, 1, 0, 1, 'tool:build:list',         'build',         'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '表单构建菜单', 0, 0);
-insert into sys_menu values('114',  '代码生成', '3',   '2', 'gen',        'tool/gen/index',           0, 1, 0, 1, 'tool:gen:page',           'code',          'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '代码生成菜单', 0, 0);
-insert into sys_menu values('115',  '系统接口', '3',   '3', 'swagger',    'tool/swagger/index',       0, 1, 0, 1, 'tool:swagger:list',       'swagger',       'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '系统接口菜单', 0, 0);
+insert into sys_menu values('100',  '用户管理', '1',   '1', 'user',       'system/user/index',        0, 1, 0, 1, 'system:user:page',        'user',          'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '用户管理菜单', 0, 0);
+insert into sys_menu values('101',  '角色管理', '1',   '2', 'role',       'system/role/index',        0, 1, 0, 1, 'system:role:page',        'peoples',       'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '角色管理菜单', 0, 0);
+insert into sys_menu values('102',  '菜单管理', '1',   '3', 'menu',       'system/menu/index',        0, 1, 0, 1, 'system:menu:list',        'tree-table',    'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '菜单管理菜单', 0, 0);
+insert into sys_menu values('103',  '部门管理', '1',   '4', 'dept',       'system/dept/index',        0, 1, 0, 1, 'system:dept:list',        'tree',          'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '部门管理菜单', 0, 0);
+insert into sys_menu values('104',  '岗位管理', '1',   '5', 'post',       'system/post/index',        0, 1, 0, 1, 'system:post:page',        'post',          'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '岗位管理菜单', 0, 0);
+insert into sys_menu values('106',  '参数设置', '1',   '7', 'config',     'system/config/index',      0, 1, 0, 1, 'system:config:page',      'edit',          'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '参数设置菜单', 0, 0);
+insert into sys_menu values('107',  '通知公告', '1',   '8', 'notice',     'system/notice/index',      0, 1, 0, 1, 'system:notice:page',      'message',       'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '通知公告菜单', 0, 0);
+insert into sys_menu values('108',  '日志管理', '1',   '9', 'log',        'system/log/index',         0, 0, 0, 1, '',                        'log',           'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '日志管理菜单', 0, 0);
+insert into sys_menu values('109',  '在线用户', '2',   '1', 'online',     'monitor/online/index',     0, 1, 0, 1, 'monitor:online:page',     'online',        'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '在线用户菜单', 0, 0);
+insert into sys_menu values('110',  '定时任务', '2',   '2', 'job',        'monitor/job/index',        0, 1, 0, 1, 'monitor:job:page',        'job',           'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '定时任务菜单', 0, 0);
+insert into sys_menu values('111',  '数据监控', '2',   '3', 'druid',      'monitor/druid/index',      0, 1, 0, 1, 'monitor:druid:list',      'druid',         'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '数据监控菜单', 0, 0);
+insert into sys_menu values('112',  '服务监控', '2',   '4', 'server',     'monitor/server/index',     0, 1, 0, 1, 'monitor:server:list',     'server',        'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '服务监控菜单', 0, 0);
+insert into sys_menu values('113',  '表单构建', '3',   '1', 'build',      'tool/build/index',         0, 1, 0, 1, 'tool:build:list',         'build',         'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '表单构建菜单', 0, 0);
+insert into sys_menu values('114',  '代码生成', '3',   '2', 'gen',        'tool/gen/index',           0, 1, 0, 1, 'tool:gen:page',           'code',          'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '代码生成菜单', 0, 0);
+insert into sys_menu values('115',  '系统接口', '3',   '3', 'swagger',    'tool/swagger/index',       0, 1, 0, 1, 'tool:swagger:list',       'swagger',       'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '系统接口菜单', 0, 0);
 -- 三级菜单
-insert into sys_menu values('500',  '操作日志', '108', '1', 'operlog',    'monitor/operlog/index',    0, 1, 0, 1, 'monitor:operlog:page',    'form',          'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '操作日志菜单', 0, 0);
-insert into sys_menu values('501',  '登录日志', '108', '2', 'logininfor', 'monitor/logininfor/index', 0, 1, 0, 1, 'monitor:logininfor:page', 'logininfor',    'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '登录日志菜单', 0, 0);
+insert into sys_menu values('500',  '操作日志', '108', '1', 'operlog',    'monitor/operlog/index',    0, 1, 0, 1, 'monitor:operlog:page',    'form',          'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '操作日志菜单', 0, 0);
+insert into sys_menu values('501',  '登录日志', '108', '2', 'logininfor', 'monitor/logininfor/index', 0, 1, 0, 1, 'monitor:logininfor:page', 'logininfor',    'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '登录日志菜单', 0, 0);
 -- 用户管理按钮
-insert into sys_menu values('1001', '用户查询', '100', '1',  '', '', 0, 2, 0, 1, 'system:user:query',          '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_menu values('1002', '用户新增', '100', '2',  '', '', 0, 2, 0, 1, 'system:user:add',            '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_menu values('1003', '用户修改', '100', '3',  '', '', 0, 2, 0, 1, 'system:user:edit',           '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_menu values('1004', '用户删除', '100', '4',  '', '', 0, 2, 0, 1, 'system:user:remove',         '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_menu values('1005', '用户导出', '100', '5',  '', '', 0, 2, 0, 1, 'system:user:export',         '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_menu values('1006', '用户导入', '100', '6',  '', '', 0, 2, 0, 1, 'system:user:import',         '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_menu values('1007', '重置密码', '100', '7',  '', '', 0, 2, 0, 1, 'system:user:resetPwd',       '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
+insert into sys_menu values('1001', '用户查询', '100', '1',  '', '', 0, 2, 0, 1, 'system:user:query',          '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_menu values('1002', '用户新增', '100', '2',  '', '', 0, 2, 0, 1, 'system:user:add',            '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_menu values('1003', '用户修改', '100', '3',  '', '', 0, 2, 0, 1, 'system:user:edit',           '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_menu values('1004', '用户删除', '100', '4',  '', '', 0, 2, 0, 1, 'system:user:remove',         '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_menu values('1005', '用户导出', '100', '5',  '', '', 0, 2, 0, 1, 'system:user:export',         '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_menu values('1006', '用户导入', '100', '6',  '', '', 0, 2, 0, 1, 'system:user:import',         '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_menu values('1007', '重置密码', '100', '7',  '', '', 0, 2, 0, 1, 'system:user:resetPwd',       '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
 -- 角色管理按钮
-insert into sys_menu values('1008', '角色查询', '101', '1',  '', '', 0, 2, 0, 1, 'system:role:query',          '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_menu values('1009', '角色新增', '101', '2',  '', '', 0, 2, 0, 1, 'system:role:add',            '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_menu values('1010', '角色修改', '101', '3',  '', '', 0, 2, 0, 1, 'system:role:edit',           '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_menu values('1011', '角色删除', '101', '4',  '', '', 0, 2, 0, 1, 'system:role:remove',         '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_menu values('1012', '角色导出', '101', '5',  '', '', 0, 2, 0, 1, 'system:role:export',         '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
+insert into sys_menu values('1008', '角色查询', '101', '1',  '', '', 0, 2, 0, 1, 'system:role:query',          '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_menu values('1009', '角色新增', '101', '2',  '', '', 0, 2, 0, 1, 'system:role:add',            '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_menu values('1010', '角色修改', '101', '3',  '', '', 0, 2, 0, 1, 'system:role:edit',           '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_menu values('1011', '角色删除', '101', '4',  '', '', 0, 2, 0, 1, 'system:role:remove',         '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_menu values('1012', '角色导出', '101', '5',  '', '', 0, 2, 0, 1, 'system:role:export',         '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
 -- 菜单管理按钮
-insert into sys_menu values('1013', '菜单查询', '102', '1',  '', '', 0, 2, 0, 1, 'system:menu:query',          '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_menu values('1014', '菜单新增', '102', '2',  '', '', 0, 2, 0, 1, 'system:menu:add',            '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_menu values('1015', '菜单修改', '102', '3',  '', '', 0, 2, 0, 1, 'system:menu:edit',           '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_menu values('1016', '菜单删除', '102', '4',  '', '', 0, 2, 0, 1, 'system:menu:remove',         '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
+insert into sys_menu values('1013', '菜单查询', '102', '1',  '', '', 0, 2, 0, 1, 'system:menu:query',          '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_menu values('1014', '菜单新增', '102', '2',  '', '', 0, 2, 0, 1, 'system:menu:add',            '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_menu values('1015', '菜单修改', '102', '3',  '', '', 0, 2, 0, 1, 'system:menu:edit',           '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_menu values('1016', '菜单删除', '102', '4',  '', '', 0, 2, 0, 1, 'system:menu:remove',         '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
 -- 部门管理按钮
-insert into sys_menu values('1017', '部门查询', '103', '1',  '', '', 0, 2, 0, 1, 'system:dept:query',          '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_menu values('1018', '部门新增', '103', '2',  '', '', 0, 2, 0, 1, 'system:dept:add',            '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_menu values('1019', '部门修改', '103', '3',  '', '', 0, 2, 0, 1, 'system:dept:edit',           '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_menu values('1020', '部门删除', '103', '4',  '', '', 0, 2, 0, 1, 'system:dept:remove',         '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
+insert into sys_menu values('1017', '部门查询', '103', '1',  '', '', 0, 2, 0, 1, 'system:dept:query',          '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_menu values('1018', '部门新增', '103', '2',  '', '', 0, 2, 0, 1, 'system:dept:add',            '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_menu values('1019', '部门修改', '103', '3',  '', '', 0, 2, 0, 1, 'system:dept:edit',           '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_menu values('1020', '部门删除', '103', '4',  '', '', 0, 2, 0, 1, 'system:dept:remove',         '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
 -- 岗位管理按钮
-insert into sys_menu values('1021', '岗位查询', '104', '1',  '', '', 0, 2, 0, 1, 'system:post:query',          '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_menu values('1022', '岗位新增', '104', '2',  '', '', 0, 2, 0, 1, 'system:post:add',            '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_menu values('1023', '岗位修改', '104', '3',  '', '', 0, 2, 0, 1, 'system:post:edit',           '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_menu values('1024', '岗位删除', '104', '4',  '', '', 0, 2, 0, 1, 'system:post:remove',         '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_menu values('1025', '岗位导出', '104', '5',  '', '', 0, 2, 0, 1, 'system:post:export',         '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
+insert into sys_menu values('1021', '岗位查询', '104', '1',  '', '', 0, 2, 0, 1, 'system:post:query',          '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_menu values('1022', '岗位新增', '104', '2',  '', '', 0, 2, 0, 1, 'system:post:add',            '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_menu values('1023', '岗位修改', '104', '3',  '', '', 0, 2, 0, 1, 'system:post:edit',           '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_menu values('1024', '岗位删除', '104', '4',  '', '', 0, 2, 0, 1, 'system:post:remove',         '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_menu values('1025', '岗位导出', '104', '5',  '', '', 0, 2, 0, 1, 'system:post:export',         '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
 -- 参数设置按钮
-insert into sys_menu values('1031', '参数查询', '106', '1', '#', '', 0, 2, 0, 1, 'system:config:query',        '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_menu values('1032', '参数新增', '106', '2', '#', '', 0, 2, 0, 1, 'system:config:add',          '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_menu values('1033', '参数修改', '106', '3', '#', '', 0, 2, 0, 1, 'system:config:edit',         '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_menu values('1034', '参数删除', '106', '4', '#', '', 0, 2, 0, 1, 'system:config:remove',       '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_menu values('1035', '参数导出', '106', '5', '#', '', 0, 2, 0, 1, 'system:config:export',       '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
+insert into sys_menu values('1031', '参数查询', '106', '1', '#', '', 0, 2, 0, 1, 'system:config:query',        '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_menu values('1032', '参数新增', '106', '2', '#', '', 0, 2, 0, 1, 'system:config:add',          '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_menu values('1033', '参数修改', '106', '3', '#', '', 0, 2, 0, 1, 'system:config:edit',         '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_menu values('1034', '参数删除', '106', '4', '#', '', 0, 2, 0, 1, 'system:config:remove',       '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_menu values('1035', '参数导出', '106', '5', '#', '', 0, 2, 0, 1, 'system:config:export',       '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
 -- 通知公告按钮
-insert into sys_menu values('1036', '公告查询', '107', '1', '#', '', 0, 2, 0, 1, 'system:notice:query',        '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_menu values('1037', '公告新增', '107', '2', '#', '', 0, 2, 0, 1, 'system:notice:add',          '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_menu values('1038', '公告修改', '107', '3', '#', '', 0, 2, 0, 1, 'system:notice:edit',         '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_menu values('1039', '公告删除', '107', '4', '#', '', 0, 2, 0, 1, 'system:notice:remove',       '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
+insert into sys_menu values('1036', '公告查询', '107', '1', '#', '', 0, 2, 0, 1, 'system:notice:query',        '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_menu values('1037', '公告新增', '107', '2', '#', '', 0, 2, 0, 1, 'system:notice:add',          '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_menu values('1038', '公告修改', '107', '3', '#', '', 0, 2, 0, 1, 'system:notice:edit',         '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_menu values('1039', '公告删除', '107', '4', '#', '', 0, 2, 0, 1, 'system:notice:remove',       '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
 -- 操作日志按钮
-insert into sys_menu values('1040', '操作查询', '500', '1', '#', '', 0, 2, 0, 1, 'monitor:operlog:query',      '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_menu values('1041', '操作删除', '500', '2', '#', '', 0, 2, 0, 1, 'monitor:operlog:remove',     '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_menu values('1042', '日志导出', '500', '4', '#', '', 0, 2, 0, 1, 'monitor:operlog:export',     '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
+insert into sys_menu values('1040', '操作查询', '500', '1', '#', '', 0, 2, 0, 1, 'monitor:operlog:query',      '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_menu values('1041', '操作删除', '500', '2', '#', '', 0, 2, 0, 1, 'monitor:operlog:remove',     '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_menu values('1042', '日志导出', '500', '4', '#', '', 0, 2, 0, 1, 'monitor:operlog:export',     '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
 -- 登录日志按钮
-insert into sys_menu values('1043', '登录查询', '501', '1', '#', '', 0, 2, 0, 1, 'monitor:logininfor:query',   '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_menu values('1044', '登录删除', '501', '2', '#', '', 0, 2, 0, 1, 'monitor:logininfor:remove',  '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_menu values('1045', '日志导出', '501', '3', '#', '', 0, 2, 0, 1, 'monitor:logininfor:export',  '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
+insert into sys_menu values('1043', '登录查询', '501', '1', '#', '', 0, 2, 0, 1, 'monitor:logininfor:query',   '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_menu values('1044', '登录删除', '501', '2', '#', '', 0, 2, 0, 1, 'monitor:logininfor:remove',  '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_menu values('1045', '日志导出', '501', '3', '#', '', 0, 2, 0, 1, 'monitor:logininfor:export',  '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
 -- 在线用户按钮
-insert into sys_menu values('1046', '在线查询', '109', '1', '#', '', 0, 2, 0, 1, 'monitor:online:query',       '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_menu values('1047', '批量强退', '109', '2', '#', '', 0, 2, 0, 1, 'monitor:online:batchLogout', '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_menu values('1048', '单条强退', '109', '3', '#', '', 0, 2, 0, 1, 'monitor:online:forceLogout', '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
+insert into sys_menu values('1046', '在线查询', '109', '1', '#', '', 0, 2, 0, 1, 'monitor:online:query',       '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_menu values('1047', '批量强退', '109', '2', '#', '', 0, 2, 0, 1, 'monitor:online:batchLogout', '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_menu values('1048', '单条强退', '109', '3', '#', '', 0, 2, 0, 1, 'monitor:online:forceLogout', '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
 -- 定时任务按钮
-insert into sys_menu values('1049', '任务查询', '110', '1', '#', '', 0, 2, 0, 1, 'monitor:job:query',          '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_menu values('1050', '任务新增', '110', '2', '#', '', 0, 2, 0, 1, 'monitor:job:add',            '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_menu values('1051', '任务修改', '110', '3', '#', '', 0, 2, 0, 1, 'monitor:job:edit',           '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_menu values('1052', '任务删除', '110', '4', '#', '', 0, 2, 0, 1, 'monitor:job:remove',         '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_menu values('1053', '状态修改', '110', '5', '#', '', 0, 2, 0, 1, 'monitor:job:changeStatus',   '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_menu values('1054', '任务导出', '110', '7', '#', '', 0, 2, 0, 1, 'monitor:job:export',         '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
+insert into sys_menu values('1049', '任务查询', '110', '1', '#', '', 0, 2, 0, 1, 'monitor:job:query',          '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_menu values('1050', '任务新增', '110', '2', '#', '', 0, 2, 0, 1, 'monitor:job:add',            '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_menu values('1051', '任务修改', '110', '3', '#', '', 0, 2, 0, 1, 'monitor:job:edit',           '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_menu values('1052', '任务删除', '110', '4', '#', '', 0, 2, 0, 1, 'monitor:job:remove',         '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_menu values('1053', '状态修改', '110', '5', '#', '', 0, 2, 0, 1, 'monitor:job:changeStatus',   '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_menu values('1054', '任务导出', '110', '7', '#', '', 0, 2, 0, 1, 'monitor:job:export',         '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
 -- 代码生成按钮
-insert into sys_menu values('1055', '生成查询', '114', '1', '#', '', 0, 2, 0, 1, 'tool:gen:query',             '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_menu values('1056', '生成修改', '114', '2', '#', '', 0, 2, 0, 1, 'tool:gen:edit',              '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_menu values('1057', '生成删除', '114', '3', '#', '', 0, 2, 0, 1, 'tool:gen:remove',            '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_menu values('1058', '导入代码', '114', '2', '#', '', 0, 2, 0, 1, 'tool:gen:import',            '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_menu values('1059', '预览代码', '114', '4', '#', '', 0, 2, 0, 1, 'tool:gen:preview',           '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_menu values('1060', '生成代码', '114', '5', '#', '', 0, 2, 0, 1, 'tool:gen:code',              '#', 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
+insert into sys_menu values('1055', '生成查询', '114', '1', '#', '', 0, 2, 0, 1, 'tool:gen:query',             '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_menu values('1056', '生成修改', '114', '2', '#', '', 0, 2, 0, 1, 'tool:gen:edit',              '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_menu values('1057', '生成删除', '114', '3', '#', '', 0, 2, 0, 1, 'tool:gen:remove',            '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_menu values('1058', '导入代码', '114', '2', '#', '', 0, 2, 0, 1, 'tool:gen:import',            '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_menu values('1059', '预览代码', '114', '4', '#', '', 0, 2, 0, 1, 'tool:gen:preview',           '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_menu values('1060', '生成代码', '114', '5', '#', '', 0, 2, 0, 1, 'tool:gen:code',              '#', 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
 
 
 -- ----------------------------
@@ -420,7 +420,10 @@ create table sys_oper_log (
   method            varchar(100)    default ''                 comment '方法名称',
   request_method    varchar(10)     default ''                 comment '请求方式',
   device            tinyint(4)     default 10                comment '操作设备（10=PC端,20=手机APP,30=微信小程序）',
-  oper_name         varchar(190)     default ''                 comment '操作人员账号',
+  browser        varchar(50)    default ''                comment '浏览器类型',
+  os             varchar(50)    default ''                comment '操作系统',
+  oper_account         varchar(190)     default ''                 comment '操作人员账号',
+  oper_name         varchar(190)     default ''                 comment '操作人员姓名',
   oper_user_id      bigint(20)      default 0                 comment '操作人员ID',
   dept_name         varchar(50)     default ''                 comment '部门名称',
   oper_url          varchar(500)    default ''                 comment '请求URL',
@@ -450,8 +453,10 @@ create table sys_config (
   id         bigint(20)          not null auto_increment    comment '参数主键',
   config_name       varchar(100)    default ''                 comment '参数名称',
   config_key        varchar(100)    default ''                 comment '参数键名',
-  config_value      varchar(500)    default ''                 comment '参数键值',
+  config_value      varchar(2000)    default ''                 comment '参数键值',
   built_in       bit(1)         default 0                comment '是否系统内置（false=否,true=是）',
+  need_login       bit(1)         default 1                comment '是否需要登录验证（false=否,true=是）',
+  status            tinyint(4)       default 1                comment '状态（0=停用,1=正常）',
   create_by         varchar(64)     default ''                 comment '创建者',
   create_time       datetime                                   comment '创建时间',
   update_by         varchar(64)     default ''                 comment '更新者',
@@ -462,9 +467,9 @@ create table sys_config (
   primary key (id)
 ) engine=innodb auto_increment=100 comment = '参数配置表';
 
-insert into sys_config values(1, '主框架页-默认皮肤样式名称', 'sys.index.skinName',     'skin-blue',     1, 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '蓝色 skin-blue、绿色 skin-green、紫色 skin-purple、红色 skin-red、黄色 skin-yellow', 0, 0);
-insert into sys_config values(2, '用户管理-账号初始密码',     'sys.user.initPassword',  '123456',        1, 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '初始化密码 123456', 0, 0);
-insert into sys_config values(3, '主框架页-侧边栏主题',       'sys.index.sideTheme',    'theme-dark',    1, 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '深色主题theme-dark，浅色主题theme-light', 0, 0);
+insert into sys_config values(1, '主框架页-默认皮肤样式名称', 'sys.index.skinName',     'skin-blue',     1, 1, 1, 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '蓝色 skin-blue、绿色 skin-green、紫色 skin-purple、红色 skin-red、黄色 skin-yellow', 0, 0);
+insert into sys_config values(2, '用户管理-账号初始密码',     'sys.user.initPassword',  '123456',        1, 1, 1, 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '初始化密码 123456', 0, 0);
+insert into sys_config values(3, '主框架页-侧边栏主题',       'sys.index.sideTheme',    'theme-dark',    1, 1, 1, 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '深色主题theme-dark，浅色主题theme-light', 0, 0);
 
 
 -- ----------------------------
@@ -480,7 +485,7 @@ create table sys_logininfor (
   device         tinyint(4)     default 10                comment '登录设备（10=PC端,20=手机APP,30=微信小程序）',
   browser        varchar(50)    default ''                comment '浏览器类型',
   os             varchar(50)    default ''                comment '操作系统',
-  login_result    tinyint(4)        default 1               comment '登录结果（1=登录成功,-1=登录失败,11=退出成功）',
+  login_result   tinyint(4)        default 1               comment '登录结果（1=登录成功,-1=登录失败,11=退出成功）',
   msg            varchar(190)   default ''                comment '提示消息',
   login_time     datetime                                 comment '登录时间',
   create_by         varchar(64)     default ''                 comment '创建者',
@@ -517,9 +522,9 @@ create table sys_job (
   primary key (id, job_name, job_group)
 ) engine=innodb auto_increment=100 comment = '定时任务调度表';
 
-insert into sys_job values(1, '系统默认（无参）', 'DEFAULT', 'taskTest.noParams',        '0/10 * * * * ?', '3', 0, 0, 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_job values(2, '系统默认（有参）', 'DEFAULT', 'taskTest.params(\'test\')',  '0/15 * * * * ?', '3', 0, 0, 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
-insert into sys_job values(3, '系统默认（多参）', 'DEFAULT', 'taskTest.multipleParams(\'test\', true, 2000L, 316.50D, 100)',  '0/20 * * * * ?', '3', 0, 0, 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '', 0, 0);
+insert into sys_job values(1, '系统默认（无参）', 'DEFAULT', 'taskTest.noParams',        '0/10 * * * * ?', '3', 0, 0, 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_job values(2, '系统默认（有参）', 'DEFAULT', 'taskTest.params(\'test\')',  '0/15 * * * * ?', '3', 0, 0, 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
+insert into sys_job values(3, '系统默认（多参）', 'DEFAULT', 'taskTest.multipleParams(\'test\', true, 2000L, 316.50D, 100)',  '0/20 * * * * ?', '3', 0, 0, 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '', 0, 0);
 
 
 -- ----------------------------
@@ -570,8 +575,8 @@ create table sys_notice (
 -- ----------------------------
 -- 初始化-公告信息表数据
 -- ----------------------------
-insert into sys_notice values('1', '温馨提醒：新版本发布啦', '2', '新版本内容', 1, 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '管理员', 0, 0);
-insert into sys_notice values('2', '维护通知：系统凌晨维护', '1', '维护内容', 1, 'admin', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', '管理员', 0, 0);
+insert into sys_notice values('1', '温馨提醒：新版本发布啦', '2', '新版本内容', 1, 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '管理员', 0, 0);
+insert into sys_notice values('2', '维护通知：系统凌晨维护', '1', '维护内容', 1, 'admin', '2021-01-22 11:56:00', 'admin', '2021-01-22 11:56:00', '管理员', 0, 0);
 
 
 -- ----------------------------

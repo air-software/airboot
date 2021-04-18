@@ -13,6 +13,11 @@ public class Constants {
     public static final String PROFILE_PROD = "prod";
     
     /**
+     * 测试环境profile名称
+     */
+    public static final String PROFILE_TEST = "test";
+    
+    /**
      * UTF-8 字符集
      */
     public static final String UTF8 = "UTF-8";
@@ -81,8 +86,19 @@ public class Constants {
      * 不拦截的路径
      */
     public static final String[] EXCLUDE_PATH_PATTERNS = {"/login", "/needCaptcha", "/captchaImage", "/profile/**", "/common/download**", "/common/download/resource**",
+        "/system/config/unauth-key/*",
         "/*.html", "/**/*.html", "/**/*.css", "/**/*.js", "/**/*.ttf", "/**/*.png", "/**/*.gif", "/**/*.ico", "/**/*.jpg",
         "/swagger-ui.html", "/**/v2**", "/swagger-resources/**", "/webjars/**", "/*/api-docs", "/druid/**",
         "/actuator**", "/error"};
+    
+    /**
+     * 超级管理员用户ID
+     */
+    public static final Long ADMIN_USER_ID = 1L;
+    
+    /**
+     * 超级管理员角色ID
+     */
+    public static final Long ADMIN_ROLE_ID = 1L;
     
 }

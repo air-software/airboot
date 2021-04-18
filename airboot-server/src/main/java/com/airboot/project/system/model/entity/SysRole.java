@@ -1,6 +1,7 @@
 package com.airboot.project.system.model.entity;
 
 import com.airboot.common.core.aspectj.lang.annotation.Excel;
+import com.airboot.common.core.constant.Constants;
 import com.airboot.common.model.entity.BaseEntity;
 import com.airboot.common.model.enums.StatusEnum;
 import com.airboot.project.system.model.enums.DataScopeEnum;
@@ -85,7 +86,7 @@ public class SysRole extends BaseEntity {
     }
     
     public static boolean isAdmin(Long roleId) {
-        return roleId != null && 1L == roleId;
+        return Constants.ADMIN_ROLE_ID.equals(roleId);
     }
     
 }

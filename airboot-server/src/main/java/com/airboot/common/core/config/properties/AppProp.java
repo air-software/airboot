@@ -43,12 +43,36 @@ public class AppProp {
         return false;
     }
     
+    /**
+     * 是测试环境
+     */
+    public static boolean IS_TEST_ENV;
+    
+    /**
+     * 不是测试环境
+     */
+    public static boolean NOT_TEST_ENV;
+    
+    /**
+     * 判断是否为测试环境
+     */
+    private static boolean isTestEnv() {
+        for (String profile : ACTIVE_PROFILE.split(",")) {
+            if (profile.contains(Constants.PROFILE_TEST)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
     // 在Spring动态代理后注入到静态属性中
     @PostConstruct
     public void init() {
         ACTIVE_PROFILE = activeProfile;
         IS_PROD_ENV = isProdEnv();
         NOT_PROD_ENV = !IS_PROD_ENV;
+        IS_TEST_ENV = isTestEnv();
+        NOT_TEST_ENV = !IS_TEST_ENV;
     }
     
     /**

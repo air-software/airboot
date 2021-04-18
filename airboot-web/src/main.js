@@ -12,6 +12,7 @@ import '@/assets/styles/common.scss' // common css
 import App from './App'
 import store from './store'
 import router from './router'
+import mixin from './mixin'
 import permission from './directive/permission'
 
 import './assets/icons' // icon
@@ -59,6 +60,8 @@ Vue.use(Element, {
 })
 
 Vue.config.productionTip = false
+
+Vue.mixin(mixin)
 
 new Vue({
   el: '#app',

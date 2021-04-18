@@ -35,6 +35,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(CustomException.class)
     public AjaxResult businessException(CustomException e) {
+        log.error(e.getMessage(), e);
         if (StringUtils.isNull(e.getCode())) {
             return AjaxResult.error(e.getMessage(), e);
         }

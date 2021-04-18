@@ -28,6 +28,8 @@
 
       </template>
 
+      <span class="name">{{ user.personName }}</span>
+
       <el-dropdown class="avatar-container right-menu-item hover-effect" trigger="click">
         <div class="avatar-wrapper">
           <img :src="avatar" class="user-avatar">
@@ -73,7 +75,8 @@ export default {
     ...mapGetters([
       'sidebar',
       'avatar',
-      'device'
+      'device',
+      'user'
     ]),
     setting: {
       get() {
@@ -140,6 +143,12 @@ export default {
     float: right;
     height: 100%;
     line-height: 50px;
+
+    .name {
+      font-size: 15px;
+      bottom: 15px;
+      position: relative;
+    }
 
     &:focus {
       outline: none;

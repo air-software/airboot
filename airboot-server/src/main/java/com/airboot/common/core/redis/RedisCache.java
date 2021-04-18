@@ -1,21 +1,11 @@
 package com.airboot.common.core.redis;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.TimeUnit;
-import javax.annotation.Resource;
-
-import org.springframework.data.redis.core.BoundSetOperations;
-import org.springframework.data.redis.core.HashOperations;
-import org.springframework.data.redis.core.ListOperations;
-import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.core.ValueOperations;
+import org.springframework.data.redis.core.*;
 import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
+import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 /**
  * spring redis 工具类
@@ -186,5 +176,15 @@ public class RedisCache {
      */
     public Collection<String> keys(String pattern) {
         return redisTemplate.keys(pattern);
+    }
+    
+    /**
+     * 自增
+     *
+     * @param key 缓存键值
+     */
+    public Long increment(String key) {
+        ValueOperations<String, Long> operation = redisTemplate.opsForValue();
+        return operation.increment(key);
     }
 }

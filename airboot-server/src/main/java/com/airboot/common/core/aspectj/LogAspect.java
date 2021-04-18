@@ -12,6 +12,7 @@ import com.airboot.common.security.LoginUser;
 import com.airboot.common.security.LoginUserContextHolder;
 import com.airboot.project.monitor.model.entity.SysOperLog;
 import com.alibaba.fastjson.JSON;
+import eu.bitwalker.useragentutils.UserAgent;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.Signature;
@@ -86,12 +87,21 @@ public class LogAspect {
             // 请求的地址
             String ip = IpUtils.getIpAddr(ServletUtils.getRequest());
             operLog.setOperIp(ip);
+    
+            final UserAgent userAgent = UserAgent.parseUserAgentString(ServletUtils.getRequest().getHeader("User-Agent"));
+            // 获取客户端操作系统
+            String os = userAgent.getOperatingSystem().getName();
+            // 获取客户端浏览器
+            String browser = userAgent.getBrowser().getName();
+            operLog.setBrowser(browser);
+            operLog.setOs(os);
             // 返回参数
             operLog.setJsonResult(JSON.toJSONString(jsonResult));
             
             operLog.setOperUrl(ServletUtils.getRequest().getRequestURI());
             if (loginUser != null) {
-                operLog.setOperName(loginUser.getAccount());
+                operLog.setOperAccount(loginUser.getAccount());
+                operLog.setOperName(loginUser.getPersonName());
                 operLog.setOperUserId(loginUser.getUserId());
                 operLog.setDevice(loginUser.getDevice());
             }
@@ -108,6 +118,10 @@ public class LogAspect {
             operLog.setRequestMethod(ServletUtils.getRequest().getMethod());
             // 处理设置注解上的参数
             getControllerMethodDescription(joinPoint, controllerLog, operLog);
+    
+            // 销毁存放LoginUser的ThreadLocal
+            LoginUserContextHolder.destroy();
+            
             // 保存数据库
             AsyncManager.me().execute(AsyncFactory.recordOper(operLog));
         } catch (Exception exp) {

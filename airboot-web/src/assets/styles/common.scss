@@ -279,3 +279,8 @@
 .el-table th.gutter {
   display: table-cell !important;
 }
+
+/** 解决当对话框高度超出一屏时，对话框底部会紧贴屏幕底部的问题 **/
+.air-dialog .el-dialog {
+  margin-bottom: 6vh;
+}

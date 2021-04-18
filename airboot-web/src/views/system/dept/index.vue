@@ -43,6 +43,7 @@
       :tree-props="{children: 'children', hasChildren: 'hasChildren'}"
     >
       <el-table-column prop="deptName" label="部门名称" width="260"></el-table-column>
+      <el-table-column prop="id" label="部门编号" width="150"></el-table-column>
       <el-table-column prop="orderNum" label="排序" width="200"></el-table-column>
       <el-table-column prop="status" label="状态" width="100"></el-table-column>
       <el-table-column label="创建时间" align="center" prop="createTime" width="200">
@@ -243,6 +244,10 @@ export default {
     handleAdd(row) {
       this.reset()
       this.form.parentId = row && row.id
+      // 如果一个部门也没有，则可以建立根部门
+      if (!this.tableTreeData.length) {
+        this.form.parentId = 0
+      }
       this.open = true
       this.title = '添加部门'
       listDept().then(data => {

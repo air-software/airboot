@@ -48,7 +48,7 @@ public class SysLoginService {
     /**
      * 登录验证
      */
-    public String login(LoginBody loginBody) {
+    public LoginUser login(LoginBody loginBody) {
         String account = loginBody.getAccount();
         String password = loginBody.getPassword();
         DeviceEnum device = loginBody.getDevice() == null ? DeviceEnum.PC端 : loginBody.getDevice();
@@ -72,14 +72,15 @@ public class SysLoginService {
             AsyncManager.me().execute(AsyncFactory.recordLogininfor(recordLogininforVO));
             throw new UserNotExistException();
         }
+    
+        recordLogininforVO.setUserId(user.getId());
+        
         // 如果用户已被停用
         if (StatusEnum.停用.equals(user.getStatus())) {
             recordLogininforVO.setMsg(MessageUtils.message("user.blocked"));
             AsyncManager.me().execute(AsyncFactory.recordLogininfor(recordLogininforVO));
             throw new UserException("user.blocked", null);
         }
-    
-        recordLogininforVO.setUserId(user.getId());
         
         // 如果密码不匹配
         if (!Md5Utils.verifyPassword(password, user.getPassword())) {
@@ -107,7 +108,9 @@ public class SysLoginService {
         }
         
         // 生成token
-        return tokenService.createToken(loginUser);
+        String token = tokenService.createToken(loginUser);
+        loginUser.setToken(token);
+        return loginUser;
     }
     
     /**

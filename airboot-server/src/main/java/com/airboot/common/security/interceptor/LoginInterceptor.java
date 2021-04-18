@@ -7,6 +7,8 @@ import com.airboot.common.core.exception.CustomException;
 import com.airboot.common.security.LoginUser;
 import com.airboot.common.security.LoginUserContextHolder;
 import com.airboot.common.security.service.TokenService;
+import com.alibaba.fastjson.JSON;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,6 +23,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author airboot
  */
+@Slf4j
 @Component
 public class LoginInterceptor extends HandlerInterceptorAdapter {
     
@@ -36,6 +39,8 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         if (RequestMethod.OPTIONS.name().equals(request.getMethod()) && AppProp.NOT_PROD_ENV) {
             return true;
         }
+    
+        log.info("---请求URI={}, 请求参数={}---", request.getRequestURI(), JSON.toJSONString(request.getParameterMap()));
         
         LoginUser loginUser = tokenService.getLoginUser(request);
         // 如果是唯一登录，并且用户已被踢出

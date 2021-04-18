@@ -64,6 +64,7 @@ public class DataScopeAspect {
     public static void dataScopeFilter(JoinPoint joinPoint, SysUser user, String deptAlias, String userAlias) {
         StringBuilder sqlString = new StringBuilder();
         
+        // 多个角色采取并集的方式，因此拼接时先用OR，最后再把第一个OR替换为AND
         for (SysRole role : user.getRoles()) {
             DataScopeEnum dataScope = role.getDataScope();
             if (DataScopeEnum.全部数据权限.equals(dataScope)) {

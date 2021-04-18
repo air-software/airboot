@@ -20,6 +20,11 @@ public class LoginUser {
     private static final long serialVersionUID = 1L;
     
     /**
+     * 登录凭据
+     */
+    private String token;
+    
+    /**
      * 每次登录成功后随机生成（如果已预设则不再随机）
      */
     private String uuid;
@@ -100,6 +105,10 @@ public class LoginUser {
     
     public String getMobile() {
         return user.getMobile();
+    }
+    
+    public String getPersonName() {
+        return user.getPersonName();
     }
     
     public String getUsername() {

@@ -94,6 +94,42 @@ public class SysUserServiceImpl implements ISysUserService {
     }
     
     /**
+     * 查询所有正常用户
+     */
+    @Override
+    public List<SysUser> getAllNormalList() {
+        return userMapper.selectList(new LambdaQueryWrapper<SysUser>()
+            .eq(SysUser::getStatus, StatusEnum.正常)
+            .eq(SysUser::isDeleted, false));
+    }
+    
+    /**
+     * 查询正常用户
+     *
+     * @param id
+     */
+    @Override
+    public SysUser getNormalOne(Long id) {
+        return userMapper.selectOne(new LambdaQueryWrapper<SysUser>()
+            .eq(SysUser::getId, id)
+            .eq(SysUser::getStatus, StatusEnum.正常)
+            .eq(SysUser::isDeleted, false));
+    }
+    
+    /**
+     * 根据手机号查询正常用户
+     *
+     * @param mobile
+     */
+    @Override
+    public SysUser getNormalOneByMobile(String mobile) {
+        return userMapper.selectOne(new LambdaQueryWrapper<SysUser>()
+            .eq(SysUser::getMobile, mobile)
+            .eq(SysUser::getStatus, StatusEnum.正常)
+            .eq(SysUser::isDeleted, false));
+    }
+    
+    /**
      * 通过用户ID查询用户
      *
      * @param userId 用户ID
@@ -162,7 +198,7 @@ public class SysUserServiceImpl implements ISysUserService {
     @Override
     public void validateUser(SysUser user, boolean isUpdate) {
         String operType = isUpdate ? "修改" : "新增";
-        if (!this.checkUsernameUnique(user)) {
+        if (StringUtils.isNotBlank(user.getUsername()) && !this.checkUsernameUnique(user)) {
             throw new CustomException(operType + "用户失败，用户名【" + user.getUsername() + "】已存在");
         } else if (!this.checkMobileUnique(user)) {
             throw new CustomException(operType + "用户失败，手机号码【" + user.getMobile() + "】已存在");
@@ -171,7 +207,7 @@ public class SysUserServiceImpl implements ISysUserService {
         }
         
         // 正则校验
-        if (!StringUtils.isUsername(user.getUsername())) {
+        if (StringUtils.isNotBlank(user.getUsername()) && !StringUtils.isUsername(user.getUsername())) {
             throw new CustomException(operType + "用户失败，用户名【" + user.getUsername() + "】不符合格式规范");
         } else if (!StringUtils.isMobile(user.getMobile())) {
             throw new CustomException(operType + "用户失败，手机号码【" + user.getMobile() + "】不符合格式规范");
@@ -371,7 +407,10 @@ public class SysUserServiceImpl implements ISysUserService {
     @Override
     public int deleteByIds(Long[] userIds) {
         for (Long userId : userIds) {
-            if (SysUser.isAdmin(userId) || userId == null) {
+            if (userId == null) {
+                throw new CustomException("未找到要操作的用户");
+            }
+            if (SysUser.isAdmin(userId)) {
                 throw new CustomException("不允许删除管理员用户");
             }
         }
