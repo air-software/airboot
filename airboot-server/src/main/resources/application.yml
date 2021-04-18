@@ -3,7 +3,7 @@ airboot:
   # 名称
   name: Airboot
   # 版本
-  version: 1.0.3
+  version: 1.0.4
 
 # Spring配置
 spring:
